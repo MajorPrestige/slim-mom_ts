@@ -44,6 +44,11 @@
       "last 1 safari version"
     ]
   },
+  "lint-staged": {
+    "./**/*.js": [
+      "eslint --fix"
+    ]
+  },
   "devDependencies": {
     "tailwindcss": "^3.2.7"
   }
