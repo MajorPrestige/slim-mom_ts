@@ -1,1 +1,1 @@
-React/Typescript/Tailwind/Redux-Toolkit
+React/Typescript/Tailwind/ReduxToolkit
