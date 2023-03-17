@@ -1,4 +1,3 @@
-import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import {
   axiosLogin,
@@ -9,6 +8,7 @@ import {
 } from 'api/auth';
 import { UserData, UserLoginData } from 'types/auth.type';
 import { RootState } from 'redux/store';
+import handleRejectWithValue from 'helpers/rejectWithValue';
 
 export const register = createAsyncThunk(
   'auth/register',
@@ -24,17 +24,7 @@ export const register = createAsyncThunk(
       );
       return data;
     } catch (error) {
-      if (axios.isAxiosError(error)) {
-        const { data, status } = error.response!;
-        return rejectWithValue({ data, status });
-      }
-      if (error instanceof Error) {
-        return rejectWithValue({ data: { message: error.message }, status: null });
-      }
-      return rejectWithValue({
-        data: { message: 'An error occurred' },
-        status: null,
-      });
+      handleRejectWithValue(rejectWithValue, error);
     }
   }
 );
@@ -46,17 +36,7 @@ export const login = createAsyncThunk(
       const data = await axiosLogin(userData);
       return data;
     } catch (error) {
-      if (axios.isAxiosError(error)) {
-        const { data, status } = error.response!;
-        return rejectWithValue({ data, status });
-      }
-      if (error instanceof Error) {
-        return rejectWithValue({ data: { message: error.message }, status: null });
-      }
-      return rejectWithValue({
-        data: { message: 'An error occurred' },
-        status: null,
-      });
+      handleRejectWithValue(rejectWithValue, error);
     }
   }
 );
@@ -70,17 +50,7 @@ export const logout = createAsyncThunk(
       const data = await axiosLogout(accessToken);
       return data;
     } catch (error) {
-      if (axios.isAxiosError(error)) {
-        const { data, status } = error.response!;
-        return rejectWithValue({ data, status });
-      }
-      if (error instanceof Error) {
-        return rejectWithValue({ data: { message: error.message }, status: null });
-      }
-      return rejectWithValue({
-        data: { message: 'An error occurred' },
-        status: null,
-      });
+      handleRejectWithValue(rejectWithValue, error);
     }
   }
 );
@@ -92,17 +62,7 @@ export const getUser = createAsyncThunk(
       const data = await axiosGetUser(accessToken);
       return data;
     } catch (error) {
-      if (axios.isAxiosError(error)) {
-        const { data, status } = error.response!;
-        return rejectWithValue({ data, status });
-      }
-      if (error instanceof Error) {
-        return rejectWithValue({ data: { message: error.message }, status: null });
-      }
-      return rejectWithValue({
-        data: { message: 'An error occurred' },
-        status: null,
-      });
+      handleRejectWithValue(rejectWithValue, error);
     }
   }
 );
@@ -118,17 +78,7 @@ export const refresh = createAsyncThunk(
       dispatch(getUser(newAccessToken));
       return data;
     } catch (error) {
-      if (axios.isAxiosError(error)) {
-        const { data, status } = error.response!;
-        return rejectWithValue({ data, status });
-      }
-      if (error instanceof Error) {
-        return rejectWithValue({ data: { message: error.message }, status: null });
-      }
-      return rejectWithValue({
-        data: { message: 'An error occurred' },
-        status: null,
-      });
+      handleRejectWithValue(rejectWithValue, error);
     }
   },
   {
