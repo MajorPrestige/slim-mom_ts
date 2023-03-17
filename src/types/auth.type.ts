@@ -4,26 +4,37 @@ export type UserData = {
   username: string;
 };
 
+export type UserLoginData = {
+  email: string;
+  password: string;
+}
+
 export type RegisterDataResponse = {
   email: string;
   password: string;
   id: string;
 };
 
+export type RefreshDataResponse = {
+  newAccessToken: string,
+  newRefreshToken: string,
+  sid: string
+}
+
 export type LoginDataResponse = {
   accessToken: string;
   refreshToken: string;
   sid: string;
-  // todaySummary: {
-  //   date: string;
-  //   kcalLeft: number;
-  //   kcalConsumed: number;
-  //   dailyRate: number;
-  //   percentsOfDailyRate: number;
-  //   userId: string;
-  //   id: string;
-  // };
-  todaySummary: Record<string, never>;
+  todaySummary: {
+    date: string;
+    kcalLeft: number;
+    kcalConsumed: number;
+    dailyRate: number;
+    percentsOfDailyRate: number;
+    userId: string;
+    id: string;
+  };
+  // todaySummary: Record<string, never>;
   user: {
     email: string;
     username: string;

@@ -1,6 +1,11 @@
 import axios from 'axios';
-
-import { UserData, RegisterDataResponse, LoginDataResponse } from 'types/auth.type';
+import {
+  UserData,
+  RegisterDataResponse,
+  LoginDataResponse,
+  UserLoginData,
+  RefreshDataResponse,
+} from 'types/auth.type';
 
 export const instance = axios.create({
   baseURL: 'https://slimmom-backend.goit.global',
@@ -14,7 +19,7 @@ export const axiosRegister = async (userData: UserData) => {
   return data;
 };
 
-export const axiosLogin = async (userData: UserData) => {
+export const axiosLogin = async (userData: UserLoginData) => {
   const { data } = await instance.post<LoginDataResponse>('/auth/login', userData);
   instance.defaults.headers.Authorization = `Bearer ${data.accessToken}`;
   return data;
@@ -29,9 +34,10 @@ export const axiosLogout = async (accessToken: string) => {
 
 export const axiosRefresh = async (currentSid: string, refreshToken: string) => {
   instance.defaults.headers.Authorization = `Bearer ${refreshToken}`;
-  const { data } = await instance.post<
-    Pick<LoginDataResponse, 'accessToken' | 'refreshToken' | 'sid'>
-  >('/auth/refresh', currentSid);
+  const { data } = await instance.post<RefreshDataResponse>(
+    '/auth/refresh',
+    currentSid
+  );
   return data;
 };
 
