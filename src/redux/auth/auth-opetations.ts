@@ -8,6 +8,7 @@ import {
   axiosGetUser,
 } from 'api/auth';
 import { UserData, UserLoginData } from 'types/auth.type';
+import { RootState } from 'redux/store';
 
 export const register = createAsyncThunk(
   'auth/register',
@@ -26,14 +27,14 @@ export const register = createAsyncThunk(
       if (axios.isAxiosError(error)) {
         const { data, status } = error.response!;
         return rejectWithValue({ data, status });
-      } else if (error instanceof Error) {
-        return rejectWithValue({ data: { message: error.message }, status: null });
-      } else {
-        return rejectWithValue({
-          data: { message: 'An error occurred' },
-          status: null,
-        });
       }
+      if (error instanceof Error) {
+        return rejectWithValue({ data: { message: error.message }, status: null });
+      }
+      return rejectWithValue({
+        data: { message: 'An error occurred' },
+        status: null,
+      });
     }
   }
 );
@@ -48,14 +49,14 @@ export const login = createAsyncThunk(
       if (axios.isAxiosError(error)) {
         const { data, status } = error.response!;
         return rejectWithValue({ data, status });
-      } else if (error instanceof Error) {
-        return rejectWithValue({ data: { message: error.message }, status: null });
-      } else {
-        return rejectWithValue({
-          data: { message: 'An error occurred' },
-          status: null,
-        });
       }
+      if (error instanceof Error) {
+        return rejectWithValue({ data: { message: error.message }, status: null });
+      }
+      return rejectWithValue({
+        data: { message: 'An error occurred' },
+        status: null,
+      });
     }
   }
 );
@@ -64,23 +65,22 @@ export const logout = createAsyncThunk(
   'auth/logout',
   async (_, { rejectWithValue, getState }) => {
     try {
-      const {
-        auth: { accessToken },
-      } = getState() as any;
+      const { auth } = getState() as RootState;
+      const accessToken: string = auth.accessToken;
       const data = await axiosLogout(accessToken);
       return data;
     } catch (error) {
       if (axios.isAxiosError(error)) {
         const { data, status } = error.response!;
         return rejectWithValue({ data, status });
-      } else if (error instanceof Error) {
-        return rejectWithValue({ data: { message: error.message }, status: null });
-      } else {
-        return rejectWithValue({
-          data: { message: 'An error occurred' },
-          status: null,
-        });
       }
+      if (error instanceof Error) {
+        return rejectWithValue({ data: { message: error.message }, status: null });
+      }
+      return rejectWithValue({
+        data: { message: 'An error occurred' },
+        status: null,
+      });
     }
   }
 );
@@ -95,14 +95,14 @@ export const getUser = createAsyncThunk(
       if (axios.isAxiosError(error)) {
         const { data, status } = error.response!;
         return rejectWithValue({ data, status });
-      } else if (error instanceof Error) {
-        return rejectWithValue({ data: { message: error.message }, status: null });
-      } else {
-        return rejectWithValue({
-          data: { message: 'An error occurred' },
-          status: null,
-        });
       }
+      if (error instanceof Error) {
+        return rejectWithValue({ data: { message: error.message }, status: null });
+      }
+      return rejectWithValue({
+        data: { message: 'An error occurred' },
+        status: null,
+      });
     }
   }
 );
@@ -111,9 +111,8 @@ export const refresh = createAsyncThunk(
   'auth/refresh',
   async (sid: string, { rejectWithValue, getState, dispatch }) => {
     try {
-      const {
-        auth: { refreshToken },
-      } = getState() as any;
+      const { auth } = getState() as RootState;
+      const refreshToken: string = auth.refreshToken;
       const data = await axiosRefresh(sid, refreshToken);
       const { newAccessToken } = data;
       dispatch(getUser(newAccessToken));
@@ -122,19 +121,19 @@ export const refresh = createAsyncThunk(
       if (axios.isAxiosError(error)) {
         const { data, status } = error.response!;
         return rejectWithValue({ data, status });
-      } else if (error instanceof Error) {
-        return rejectWithValue({ data: { message: error.message }, status: null });
-      } else {
-        return rejectWithValue({
-          data: { message: 'An error occurred' },
-          status: null,
-        });
       }
+      if (error instanceof Error) {
+        return rejectWithValue({ data: { message: error.message }, status: null });
+      }
+      return rejectWithValue({
+        data: { message: 'An error occurred' },
+        status: null,
+      });
     }
   },
   {
     condition: (_, { getState }) => {
-      const { auth } = getState() as any;
+      const { auth } = getState() as RootState;
       if (!auth.sid) {
         return false;
       }

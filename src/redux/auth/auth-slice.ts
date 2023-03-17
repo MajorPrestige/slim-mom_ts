@@ -8,7 +8,7 @@ import {
 import { StoreAuth, StoreError } from 'types/redux.type';
 import { UserInfo } from 'types/auth.type';
 
-const initialState: StoreAuth = {
+let initialState: StoreAuth = {
   user: {},
   todaySummary: {},
   sid: '',
