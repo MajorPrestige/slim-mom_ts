@@ -5,6 +5,7 @@ import {
   LoginDataResponse,
   UserLoginData,
   RefreshDataResponse,
+  UserInfo
 } from 'types/auth.type';
 
 export const instance = axios.create({
@@ -38,6 +39,12 @@ export const axiosRefresh = async (currentSid: string, refreshToken: string) => 
     '/auth/refresh',
     currentSid
   );
+  return data;
+};
+
+export const axiosGetUser = async (accessToken: string) => {
+  instance.defaults.headers.Authorization = `Bearer ${accessToken}`;
+  const { data } = await instance.get<UserInfo>('/user');
   return data;
 };
 

@@ -6,7 +6,7 @@ import {
   RefreshDataResponse,
 } from 'types/auth.type';
 import { StoreAuth, StoreError } from 'types/redux.type';
-import { UserInfo } from 'types/user.type';
+import { UserInfo } from 'types/auth.type';
 
 const initialState: StoreAuth = {
   user: {},
