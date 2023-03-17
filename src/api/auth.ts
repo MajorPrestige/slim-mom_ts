@@ -5,7 +5,7 @@ import {
   LoginDataResponse,
   UserLoginData,
   RefreshDataResponse,
-  UserInfo
+  UserInfo,
 } from 'types/auth.type';
 
 export const instance = axios.create({

@@ -7,7 +7,7 @@ export type UserData = {
 export type UserLoginData = {
   email: string;
   password: string;
-}
+};
 
 export type RegisterDataResponse = {
   email: string;
@@ -16,10 +16,10 @@ export type RegisterDataResponse = {
 };
 
 export type RefreshDataResponse = {
-  newAccessToken: string,
-  newRefreshToken: string,
-  sid: string
-}
+  newAccessToken: string;
+  newRefreshToken: string;
+  sid: string;
+};
 
 export type LoginDataResponse = {
   accessToken: string;
