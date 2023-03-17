@@ -17,14 +17,17 @@ export const register = createAsyncThunk(
         })
       );
       return data;
-    } catch (error: unknown) {
+    } catch (error) {
       if (axios.isAxiosError(error)) {
-        const { data, status } = error.response || {};
+        const { data, status } = error.response!;
         return rejectWithValue({ data, status });
       } else if (error instanceof Error) {
-        return rejectWithValue({ data: error.message, status: null });
+        return rejectWithValue({ data: { message: error.message }, status: null });
       } else {
-        return rejectWithValue({ data: 'An error occurred', status: null });
+        return rejectWithValue({
+          data: { message: 'An error occurred' },
+          status: null,
+        });
       }
     }
   }
@@ -36,14 +39,17 @@ export const login = createAsyncThunk(
     try {
       const data = await axiosLogin(userData);
       return data;
-    } catch (error: unknown) {
+    } catch (error) {
       if (axios.isAxiosError(error)) {
-        const { data, status } = error.response || {};
+        const { data, status } = error.response!;
         return rejectWithValue({ data, status });
       } else if (error instanceof Error) {
-        return rejectWithValue({ data: error.message, status: null });
+        return rejectWithValue({ data: { message: error.message }, status: null });
       } else {
-        return rejectWithValue({ data: 'An error occurred', status: null });
+        return rejectWithValue({
+          data: { message: 'An error occurred' },
+          status: null,
+        });
       }
     }
   }
@@ -58,14 +64,17 @@ export const logout = createAsyncThunk(
       } = getState() as any;
       const data = await axiosLogout(accessToken);
       return data;
-    } catch (error: unknown) {
+    } catch (error) {
       if (axios.isAxiosError(error)) {
-        const { data, status } = error.response || {};
+        const { data, status } = error.response!;
         return rejectWithValue({ data, status });
       } else if (error instanceof Error) {
-        return rejectWithValue({ data: error.message, status: null });
+        return rejectWithValue({ data: { message: error.message }, status: null });
       } else {
-        return rejectWithValue({ data: 'An error occurred', status: null });
+        return rejectWithValue({
+          data: { message: 'An error occurred' },
+          status: null,
+        });
       }
     }
   }
@@ -77,14 +86,17 @@ export const getUser = createAsyncThunk(
     try {
       const data = await axiosGetUser(accessToken);
       return data;
-    } catch (error: unknown) {
+    } catch (error) {
       if (axios.isAxiosError(error)) {
-        const { data, status } = error.response || {};
+        const { data, status } = error.response!;
         return rejectWithValue({ data, status });
       } else if (error instanceof Error) {
-        return rejectWithValue({ data: error.message, status: null });
+        return rejectWithValue({ data: { message: error.message }, status: null });
       } else {
-        return rejectWithValue({ data: 'An error occurred', status: null });
+        return rejectWithValue({
+          data: { message: 'An error occurred' },
+          status: null,
+        });
       }
     }
   }
@@ -101,14 +113,17 @@ export const refresh = createAsyncThunk(
       const { newAccessToken } = data;
       dispatch(getUser(newAccessToken));
       return data;
-    } catch (error: unknown) {
+    } catch (error) {
       if (axios.isAxiosError(error)) {
-        const { data, status } = error.response || {};
+        const { data, status } = error.response!;
         return rejectWithValue({ data, status });
       } else if (error instanceof Error) {
-        return rejectWithValue({ data: error.message, status: null });
+        return rejectWithValue({ data: { message: error.message }, status: null });
       } else {
-        return rejectWithValue({ data: 'An error occurred', status: null });
+        return rejectWithValue({
+          data: { message: 'An error occurred' },
+          status: null,
+        });
       }
     }
   },
