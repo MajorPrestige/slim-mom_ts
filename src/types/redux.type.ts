@@ -1,5 +1,5 @@
 export type StoreAuth = {
-  user: Record<string, unknown>;
+  user: Record<any, any>;
   todaySummary: Record<string, unknown>;
   sid: string;
   accessToken: string;
