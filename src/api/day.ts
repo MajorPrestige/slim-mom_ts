@@ -17,7 +17,7 @@ export const axiosDayInfo = async (date: { date: string }) => {
   return data;
 };
 
-export async function axiosDeleteDay(product: DeleteProduct, accessToken: string) {
+export async function fetchDeleteDay(product: DeleteProduct, accessToken: string) {
   const serverData = await fetch('https://slimmom-backend.goit.global/day', {
     method: 'DELETE',
     body: JSON.stringify(product),

@@ -4,8 +4,9 @@ import {
   deleteEatenProduct,
   getInfoByDay,
 } from './day-operations';
+import { StoreDayProduct } from 'types/redux.type';
 
-const initialState = {
+const initialState: StoreDayProduct = {
   day: {},
   daySummary: {},
   eatenProduct: {},
@@ -23,49 +24,49 @@ const daySlice = createSlice({
   extraReducers: {
     //* getDay
 
-    [postEatenProduct.pending]: store => {
+    [postEatenProduct.pending.type]: store => {
       store.loading = true;
       store.error = null;
     },
-    [postEatenProduct.fulfilled]: (store, { payload }) => {
+    [postEatenProduct.fulfilled.type]: (store, { payload }) => {
       store.day = payload.day;
       store.daySummary = payload.daySummary;
       store.eatenProduct = payload.eatenProduct;
       store.loading = false;
       store.summary = payload;
     },
-    [postEatenProduct.rejected]: (store, { payload }) => {
+    [postEatenProduct.rejected.type]: (store, { payload }) => {
       store.loading = false;
       store.error = payload;
     },
 
     //* deleteDay
 
-    [deleteEatenProduct.pending]: store => {
+    [deleteEatenProduct.pending.type]: store => {
       store.loading = true;
       store.error = null;
     },
-    [deleteEatenProduct.fulfilled]: (store, { payload }) => {
+    [deleteEatenProduct.fulfilled.type]: (store, { payload }) => {
       store.daySummary = payload.newDaySummary;
       store.loading = false;
     },
-    [deleteEatenProduct.rejected]: (store, { payload }) => {
+    [deleteEatenProduct.rejected.type]: (store, { payload }) => {
       store.loading = false;
       store.error = payload;
     },
 
     //* getInfoAboutDay
 
-    [getInfoByDay.pending]: store => {
+    [getInfoByDay.pending.type]: store => {
       store.loading = true;
       store.error = null;
     },
-    [getInfoByDay.fulfilled]: (store, { payload }) => {
+    [getInfoByDay.fulfilled.type]: (store, { payload }) => {
       store.eatenProducts = payload.eatenProducts;
       store.loading = false;
       store.aboutDay = payload;
     },
-    [getInfoByDay.rejected]: (store, { payload }) => {
+    [getInfoByDay.rejected.type]: (store, { payload }) => {
       store.loading = false;
       store.error = payload;
     },

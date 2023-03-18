@@ -24,3 +24,14 @@ export type StoreError = {
   data: { message: string };
   status: number | null;
 };
+
+export type StoreDayProduct = {
+  day: Record<any, any>,
+  daySummary: Record<any, any>,
+  eatenProduct: Record<any, any>,
+  eatenProducts: any[],
+  loading: boolean,
+  error: any,
+  aboutDay?: any,
+  summary?: any,
+};
