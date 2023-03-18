@@ -2,11 +2,11 @@ import instance from './auth';
 import {
   UserInputData,
   DailyRateUserResponse,
-  DailyRate,
+  DailyRateResponse,
 } from 'types/daily-rate.type';
 
 export const axiosGetDailyRate = async (UserInputData: UserInputData) => {
-  const { data } = await instance.post<DailyRate>('/daily-rate', UserInputData);
+  const { data } = await instance.post<DailyRateResponse>('/daily-rate', UserInputData);
   return data;
 };
 

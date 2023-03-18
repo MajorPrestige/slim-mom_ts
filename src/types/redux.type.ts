@@ -11,6 +11,15 @@ export type StoreAuth = {
   newUser: Record<string, unknown>;
 };
 
+export type StoreDailyRate = {
+  id: string,
+  dailyRate: null | number,
+  summaries: Object[],
+  notAllowedProducts: string[][],
+  loading: boolean,
+  error: any,
+};
+
 export type StoreError = {
   data: { message: string };
   status: number | null;

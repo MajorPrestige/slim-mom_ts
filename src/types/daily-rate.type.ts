@@ -1,4 +1,5 @@
 export type UserInputData = {
+  id?: string,
   weight: number;
   height: number;
   age: number;
@@ -6,7 +7,7 @@ export type UserInputData = {
   bloodType: number;
 };
 
-export type DailyRate = {
+export type DailyRateResponse = {
   dailyRate: number;
   notAllowedProducts: string[][];
 };
