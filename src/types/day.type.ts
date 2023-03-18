@@ -59,11 +59,13 @@ export type DeleteProduct = {
 };
 
 export type UpdatedDaySummary = {
-  date: string;
-  kcalLeft: number;
-  kcalConsumed: number;
-  dailyRate: number;
-  percentsOfDailyRate: number;
-  userId: string;
-  id: string;
+  newDaySummary: {
+    date: string;
+    kcalLeft: number;
+    kcalConsumed: number;
+    dailyRate: number;
+    percentsOfDailyRate: number;
+    userId: string;
+    id: string;
+  };
 };

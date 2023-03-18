@@ -1,10 +1,11 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import {
   postEatenProduct,
   deleteEatenProduct,
   getInfoByDay,
 } from './day-operations';
-import { StoreDayProduct } from 'types/redux.type';
+import { StoreDayProduct, StoreError } from 'types/redux.type';
+import { DayDiary, DayInfo, UpdatedDaySummary } from 'types/day.type';
 
 const initialState: StoreDayProduct = {
   day: {},
@@ -24,51 +25,57 @@ const daySlice = createSlice({
   extraReducers: {
     //* getDay
 
-    [postEatenProduct.pending.type]: store => {
+    [postEatenProduct.pending.type]: (store) => {
       store.loading = true;
       store.error = null;
     },
-    [postEatenProduct.fulfilled.type]: (store, { payload }) => {
-      store.day = payload.day;
-      store.daySummary = payload.daySummary;
-      store.eatenProduct = payload.eatenProduct;
+    [postEatenProduct.fulfilled.type]: (store, action: PayloadAction<DayDiary>) => {
+      store.day = action.payload.day;
+      store.daySummary = action.payload.daySummary;
+      store.eatenProduct = action.payload.eatenProduct;
       store.loading = false;
-      store.summary = payload;
+      store.summary = action.payload;
     },
-    [postEatenProduct.rejected.type]: (store, { payload }) => {
+    [postEatenProduct.rejected.type]: (store, action: PayloadAction<StoreError>) => {
       store.loading = false;
-      store.error = payload;
+      store.error = action.payload.data.message;
     },
 
     //* deleteDay
 
-    [deleteEatenProduct.pending.type]: store => {
+    [deleteEatenProduct.pending.type]: (store) => {
       store.loading = true;
       store.error = null;
     },
-    [deleteEatenProduct.fulfilled.type]: (store, { payload }) => {
-      store.daySummary = payload.newDaySummary;
+    [deleteEatenProduct.fulfilled.type]: (
+      store,
+      action: PayloadAction<UpdatedDaySummary>
+    ) => {
+      store.daySummary = action.payload.newDaySummary;
       store.loading = false;
     },
-    [deleteEatenProduct.rejected.type]: (store, { payload }) => {
+    [deleteEatenProduct.rejected.type]: (
+      store,
+      action: PayloadAction<StoreError>
+    ) => {
       store.loading = false;
-      store.error = payload;
+      store.error = action.payload.data.message;
     },
 
     //* getInfoAboutDay
 
-    [getInfoByDay.pending.type]: store => {
+    [getInfoByDay.pending.type]: (store) => {
       store.loading = true;
       store.error = null;
     },
-    [getInfoByDay.fulfilled.type]: (store, { payload }) => {
-      store.eatenProducts = payload.eatenProducts;
+    [getInfoByDay.fulfilled.type]: (store, action: PayloadAction<DayInfo>) => {
+      store.eatenProducts = action.payload.eatenProducts;
       store.loading = false;
-      store.aboutDay = payload;
+      store.aboutDay = action.payload;
     },
-    [getInfoByDay.rejected.type]: (store, { payload }) => {
+    [getInfoByDay.rejected.type]: (store, action: PayloadAction<StoreError>) => {
       store.loading = false;
-      store.error = payload;
+      store.error = action.payload.data.message;
     },
   },
 });

@@ -1,5 +1,4 @@
 export type UserInputData = {
-  id?: string,
   weight: number;
   height: number;
   age: number;

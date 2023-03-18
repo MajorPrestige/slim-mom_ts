@@ -19,7 +19,10 @@ export const dailyRateInfo = createAsyncThunk(
 
 export const dailyRateUser = createAsyncThunk(
   'daily-rate/userId',
-  async (userData: UserInputData, { rejectWithValue, getState, dispatch }) => {
+  async (
+    userData: UserInputData & { id: string },
+    { rejectWithValue, getState, dispatch }
+  ) => {
     try {
       const { id, ...data } = userData;
       const { auth } = getState() as RootState;
