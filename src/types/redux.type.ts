@@ -1,16 +1,3 @@
-export type StoreAuth = {
-  user: Record<any, any>;
-  todaySummary: Record<string, unknown>;
-  sid: string;
-  accessToken: string;
-  refreshToken: string;
-  isLogin: boolean;
-  loading: boolean;
-  isRefreshing: boolean;
-  error: any;
-  newUser: Record<string, unknown>;
-};
-
 export type StoreDailyRate = {
   id: string;
   dailyRate: null | number;
@@ -25,6 +12,31 @@ export type StoreError = {
   status: number | null;
 };
 
+export type StoreDairyCalendar = {
+  date: string;
+  productId: string;
+  weight: number | null;
+};
+
+export type StoreSearch = {
+  items: any[];
+  loading: boolean;
+  error: any;
+};
+
+export type StoreAuth = {
+  user: Record<any, any>;
+  todaySummary: Record<string, unknown>;
+  sid: string;
+  accessToken: string;
+  refreshToken: string;
+  isLogin: boolean;
+  loading: boolean;
+  isRefreshing: boolean;
+  error: any;
+  newUser: Record<string, unknown>;
+};
+
 export type StoreDayProduct = {
   day: Record<any, any>;
   daySummary: Record<any, any>;
@@ -35,15 +47,3 @@ export type StoreDayProduct = {
   aboutDay?: any;
   summary?: any;
 };
-
-export type StoreDairyCalendar = {
-  date: string;
-  productId: string;
-  weight: number | null;
-};
-
-export type StoreSearch = {
-  items: any[],
-  loading: boolean,
-  error: any;
-}
