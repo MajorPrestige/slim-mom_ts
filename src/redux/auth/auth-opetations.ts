@@ -69,7 +69,7 @@ export const getUser = createAsyncThunk(
 
 export const refresh = createAsyncThunk(
   'auth/refresh',
-  async (sid: string, { rejectWithValue, getState, dispatch }) => {
+  async (sid: {sid: string}, { rejectWithValue, getState, dispatch }) => {
     try {
       const { auth } = getState() as RootState;
       const refreshToken: string = auth.refreshToken;
