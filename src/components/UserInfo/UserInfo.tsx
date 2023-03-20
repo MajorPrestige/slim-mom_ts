@@ -41,7 +41,6 @@ const UserInfo: FC = () => {
       </div>
     );
   }
-
   return (
     <div className={s.userInfoSide}>
       <p>{userName}</p>

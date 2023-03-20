@@ -1,8 +1,9 @@
-import { useDispatch, useSelector } from 'react-redux';
-import { useForm, Controller } from 'react-hook-form';
+import { FC, useState, Dispatch } from 'react';
+import { useForm, Controller, SubmitHandler } from 'react-hook-form';
 import { useMediaQuery } from 'react-responsive';
-import { useState } from 'react';
 import { ErrorMessage } from '@hookform/error-message';
+import useAppDispatch from 'hooks/useAppDispatch';
+import useAppSelector from 'hooks/useAppSelecor';
 
 import s from './DiaryAddProductForm.module.scss';
 
@@ -17,30 +18,42 @@ import { getProductOperations } from '../../../redux/product-search/search-opera
 import { getSearchError } from 'redux/product-search/search-selectors';
 import { addWeight } from 'redux/dairy-calendar/dairy-calendar-slice';
 
-const DiaryAddProductForm = ({ setModalOpen }) => {
-  const dispatch = useDispatch();
+interface DiaryAddProductFormProps {
+  setModalOpen?: Dispatch<React.SetStateAction<boolean>>;
+}
+
+interface IUseFormDefaultValue {
+  query: string;
+  weight: string;
+}
+
+const DiaryAddProductForm: FC<DiaryAddProductFormProps> = ({ setModalOpen }) => {
+  const dispatch = useAppDispatch();
 
   const [isOpen, setIsOpen] = useState(false);
 
   const isMobile = useMediaQuery({ maxWidth: 767 });
   const isTabletDesktop = useMediaQuery({ minWidth: 768 });
 
-  const searchError = useSelector(getSearchError);
+  const searchError = useAppSelector(getSearchError);
 
   const {
     control,
     handleSubmit,
     reset,
     formState: { errors },
-  } = useForm({
+  } = useForm<IUseFormDefaultValue>({
     defaultValues: {
       query: '',
       weight: '',
     },
   });
 
-  const onSubmit = (data, e) => {
-    e.preventDefault();
+  const onSubmit: SubmitHandler<IUseFormDefaultValue> = (
+    data,
+    // e: any
+  ) => {
+    // e.preventDefault();
     dispatch(getProductOperations(data.query));
     dispatch(addWeight(Number(data.weight)));
     if (isOpen === true) {
@@ -55,7 +68,7 @@ const DiaryAddProductForm = ({ setModalOpen }) => {
     reset();
   };
 
-  const handleClickClose = data => {
+  const handleClickClose = (data: boolean) => {
     setIsOpen(data);
   };
 
@@ -100,7 +113,7 @@ const DiaryAddProductForm = ({ setModalOpen }) => {
                 placeholder={'Вага (гр)'}
                 name={'weight'}
                 pattern="[0-9]+"
-                control={control}
+                // control={control}
                 handleChange={onChange}
               />
             )}
@@ -126,9 +139,7 @@ const DiaryAddProductForm = ({ setModalOpen }) => {
       {isOpen && searchError && (
         <Modal
           setModalOpen={setIsOpen}
-          children={
-            <ErrorMessageAddProduct status={searchError.data.message} />
-          }
+          children={<ErrorMessageAddProduct status={searchError.data.message} />}
         />
       )}
       {isOpen && (

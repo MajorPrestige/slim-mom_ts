@@ -4,7 +4,7 @@ export type StoreDailyRate = {
   summaries: Object[];
   notAllowedProducts: string[][];
   loading: boolean;
-error: null | StoreError | string;
+  error: any;
 };
 
 export type StoreError = {
@@ -21,7 +21,7 @@ export type StoreDairyCalendar = {
 export type StoreSearch = {
   items: any[];
   loading: boolean;
-error: null | StoreError | string;
+  error: any;
 };
 
 export type StoreAuth = {
@@ -33,7 +33,7 @@ export type StoreAuth = {
   isLogin: boolean;
   loading: boolean;
   isRefreshing: boolean;
-error: null | StoreError | string;
+  error: any;
   newUser: Record<string, unknown>;
 };
 

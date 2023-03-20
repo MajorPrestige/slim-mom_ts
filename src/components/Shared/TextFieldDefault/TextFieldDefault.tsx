@@ -1,5 +1,20 @@
+import { FC } from 'react';
 import s from './TextFieldDefault.module.scss';
-const TextFieldDefault = ({
+
+interface ITextFieldDefault {
+  type: string;
+  name: string;
+  value: string;
+  handleChange: () => void;
+  placeholder: string;
+  required: boolean | undefined;
+  pattern: string;
+  title: string;
+  disabled: boolean | undefined;
+  control?: any;
+}
+
+const TextFieldDefault: FC<Partial<ITextFieldDefault>> = ({
   type,
   name,
   value,

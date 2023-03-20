@@ -1,9 +1,12 @@
+import { FC } from 'react';
 import GreetingForm from 'components/GreetingForm/GreetingForm';
 
-export default function GreetingPage() {
+const GreetingPage: FC = () => {
   return (
     <>
       <GreetingForm />
     </>
   );
-}
+};
+
+export default GreetingPage;

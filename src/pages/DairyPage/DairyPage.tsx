@@ -1,3 +1,4 @@
+import { FC } from 'react';
 import { useMediaQuery } from 'react-responsive';
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
@@ -14,7 +15,7 @@ import GreetingForm from 'components/GreetingForm';
 
 import { getNotAllowedProducts } from 'redux/auth/auth-selectors';
 
-const DairyPage = () => {
+const DairyPage: FC = () => {
   const isMobile = useMediaQuery({ maxWidth: 767 });
 
   const notAllowedProduct = useSelector(getNotAllowedProducts);
@@ -25,7 +26,7 @@ const DairyPage = () => {
   const [modalOpen, setModalOpen] = useState(false);
 
   const handleClick = () => {
-    document.querySelector('body').classList.add('no-scroll');
+    document.querySelector('body')!.classList.add('no-scroll');
     setModalOpen(true);
   };
 
@@ -37,7 +38,7 @@ const DairyPage = () => {
           <div>
             <DiaryDateСalendar />
             {isTabletDesktop && <DiaryAddProductForm />}
-            <DiaryProductsList />
+            {<DiaryProductsList /> ?? <DiaryProductsList />}
           </div>
           {isMobile && (
             <div className={s.btn}>
