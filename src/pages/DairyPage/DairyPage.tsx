@@ -38,7 +38,7 @@ const DairyPage: FC = () => {
           <div>
             <DiaryDateСalendar />
             {isTabletDesktop && <DiaryAddProductForm />}
-            {<DiaryProductsList /> ?? <DiaryProductsList />}
+            <DiaryProductsList />
           </div>
           {isMobile && (
             <div className={s.btn}>
