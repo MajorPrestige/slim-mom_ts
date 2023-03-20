@@ -41,3 +41,9 @@ export type StoreDairyCalendar = {
   productId: string;
   weight: number | null;
 };
+
+export type StoreSearch = {
+  items: any[],
+  loading: boolean,
+  error: any;
+}
