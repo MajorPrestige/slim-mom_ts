@@ -12,12 +12,12 @@ export type StoreAuth = {
 };
 
 export type StoreDailyRate = {
-  id: string,
-  dailyRate: null | number,
-  summaries: Object[],
-  notAllowedProducts: string[][],
-  loading: boolean,
-  error: any,
+  id: string;
+  dailyRate: null | number;
+  summaries: Object[];
+  notAllowedProducts: string[][];
+  loading: boolean;
+  error: any;
 };
 
 export type StoreError = {
@@ -26,12 +26,18 @@ export type StoreError = {
 };
 
 export type StoreDayProduct = {
-  day: Record<any, any>,
-  daySummary: Record<any, any>,
-  eatenProduct: Record<any, any>,
-  eatenProducts: any[],
-  loading: boolean,
-  error: any,
-  aboutDay?: any,
-  summary?: any,
+  day: Record<any, any>;
+  daySummary: Record<any, any>;
+  eatenProduct: Record<any, any>;
+  eatenProducts: any[];
+  loading: boolean;
+  error: any;
+  aboutDay?: any;
+  summary?: any;
+};
+
+export type StoreDairyCalendar = {
+  date: string;
+  productId: string;
+  weight: number | null;
 };
