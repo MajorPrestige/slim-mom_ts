@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { Oval } from 'react-loader-spinner';
 
-import s from './Loader.module.scss';
+// import s from './Loader.module.scss';
 
 const Loader: FC = () => {
   return (
