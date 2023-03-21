@@ -26,7 +26,10 @@ const getProductSlice = createSlice({
       store.loading = false;
       store.items = action.payload;
     },
-    [getProductOperations.rejected.type]: (store, action: PayloadAction<StoreError>) => {
+    [getProductOperations.rejected.type]: (
+      store,
+      action: PayloadAction<StoreError>
+    ) => {
       store.loading = false;
       store.error = action.payload.data.message;
     },

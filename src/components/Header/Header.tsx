@@ -88,7 +88,7 @@ const Header: FC = () => {
   }
 
   return (
-    <header className={s.header}>
+    <header className="retina:bg-accent-color">
       <Logo />
       <div className={s.wrap}>
         <UserInfo />
