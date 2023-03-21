@@ -1,3 +1,4 @@
+import { FC } from 'react';
 import { useMediaQuery } from 'react-responsive';
 import { NavLink } from 'react-router-dom';
 
@@ -5,12 +6,16 @@ import s from './Navigation.module.scss';
 
 import Burger from './Burger/Burger';
 
-const Navigation = () => {
-  const isDesctop = useMediaQuery({ minWidth: 1280 });
-  const getClassName = ({ isActive }) => {
-    return isActive ? `${s.link} ${s.active}` : s.link;
-  };
+interface ClassNameProps {
+  isActive: boolean;
+}
 
+const getClassName = ({ isActive }: ClassNameProps) => {
+  return isActive ? `${s.link} ${s.active}` : s.link;
+};
+
+const Navigation: FC = () => {
+  const isDesctop = useMediaQuery({ minWidth: 1280 });
   if (!isDesctop) {
     return <Burger />;
   }

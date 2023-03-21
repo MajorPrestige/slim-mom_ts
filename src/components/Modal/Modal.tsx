@@ -1,15 +1,22 @@
-import { useEffect } from 'react';
+import React, { useEffect, FC } from 'react';
 
 import s from './Modal.module.scss';
 
-const Modal = ({
+interface IModal {
+  setModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  overlayClass?: string;
+  modalClass?: string;
+  children: React.ReactNode;
+}
+
+const Modal: FC<IModal> = ({
   setModalOpen,
   overlayClass = 'overlay',
   modalClass = 'modal',
   children,
 }) => {
   useEffect(() => {
-    const onEscPush = e => {
+    const onEscPush = (e: KeyboardEvent) => {
       if (e.code !== 'Escape') {
         return;
       }
@@ -25,7 +32,7 @@ const Modal = ({
   }, [setModalOpen]);
 
   function removeNoScrollClassList() {
-    document.querySelector('body').classList.remove('no-scroll');
+    document.querySelector('body')!.classList.remove('no-scroll');
   }
 
   const closeModal = () => {
@@ -33,7 +40,7 @@ const Modal = ({
     setModalOpen(false);
   };
 
-  const onOverlayClick = e => {
+  const onOverlayClick = (e: React.MouseEvent<HTMLElement>) => {
     if (e.target === e.currentTarget) {
       removeNoScrollClassList();
       setModalOpen(false);

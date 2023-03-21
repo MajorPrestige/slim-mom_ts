@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
-import s from '../../components/NotFound/NotFound.module.scss';
+import s from './NotFound.module.scss';
 
 import Button from 'components/Shared/Button';
 

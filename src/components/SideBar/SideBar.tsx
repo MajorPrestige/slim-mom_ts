@@ -1,5 +1,7 @@
-import { useDispatch, useSelector } from 'react-redux';
-import { useState, useEffect } from 'react';
+import React, { FC, useState, useEffect } from 'react';
+import useAppSelector from 'hooks/useAppSelecor';
+import useAppDispatch from 'hooks/useAppDispatch';
+
 import { nanoid } from '@reduxjs/toolkit';
 
 import styles from '../SideBar/SideBar.module.scss';
@@ -21,21 +23,21 @@ import { getNotAllowedProducts } from 'redux/auth/auth-selectors';
 import { getInfoByDay } from 'redux/day/day-operations';
 import { getDay } from 'redux/dairy-calendar/dairy-calendar-selectors';
 
-const SideBar = () => {
-  const date = useSelector(getDay);
-  const notAllowedProducts = useSelector(getNotAllowedProducts);
+const SideBar: FC = () => {
+  const date = useAppSelector(getDay);
+  const notAllowedProducts = useAppSelector(getNotAllowedProducts);
 
-  const kcalLeft = useSelector(getKcalLeft);
-  const kcalConsumed = useSelector(getKcalConsumed);
-  const dailyRate = useSelector(getDailyRate);
-  const percentsOfDailyRate = useSelector(getPercentsOfDailyRate);
+  const kcalLeft = useAppSelector(getKcalLeft);
+  const kcalConsumed = useAppSelector(getKcalConsumed);
+  const dailyRate = useAppSelector(getDailyRate);
+  const percentsOfDailyRate = useAppSelector(getPercentsOfDailyRate);
 
-  const kcalLeft2 = useSelector(getKcalLeft2);
-  const kcalConsumed2 = useSelector(getKcalConsumed2);
-  const dailyRate2 = useSelector(getDailyRate2);
-  const percentsOfDailyRate2 = useSelector(getPercentsOfDailyRate2);
+  const kcalLeft2 = useAppSelector(getKcalLeft2);
+  const kcalConsumed2 = useAppSelector(getKcalConsumed2);
+  const dailyRate2 = useAppSelector(getDailyRate2);
+  const percentsOfDailyRate2 = useAppSelector(getPercentsOfDailyRate2);
 
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   const [filteredFood, setFilteredFood] = useState([]);
 
@@ -52,8 +54,8 @@ const SideBar = () => {
     setFilteredFood(notAllowedProducts);
   }, [notAllowedProducts]);
 
-  const filterRecommendedFood = e => {
-    const filteredProducts = notAllowedProducts.filter(el =>
+  const filterRecommendedFood = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const filteredProducts = notAllowedProducts.filter((el: string) =>
       el.includes(e.target.value)
     );
 
@@ -110,15 +112,12 @@ const SideBar = () => {
       <div className={styles.food}>
         <h3 className={styles.title_sidebar}>Не рекомендована їжа</h3>
         {notAllowedProducts?.length > 0 && (
-          <TextFieldDefault
-            handleChange={filterRecommendedFood}
-            {...field.filter}
-          />
+          <TextFieldDefault handleChange={filterRecommendedFood} {...field.filter} />
         )}
         {notAllowedProducts?.length > 0 && (
           <>
             <ol className={styles.menuGroupList}>
-              {filteredFood.map(el => (
+              {filteredFood.map((el) => (
                 <li key={nanoid()} className={styles.menuGroupItems}>
                   {el}
                 </li>

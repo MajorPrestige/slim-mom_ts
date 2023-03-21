@@ -7,7 +7,7 @@ import s from './Header.module.scss';
 
 import Logo from 'components/Shared/Logo';
 import UserInfo from 'components/UserInfo';
-import Navigation from 'components/Navigation';
+import Navigation from 'components/Navigation/Navigation';
 
 import arrow from '../../images/header/arrow.svg';
 

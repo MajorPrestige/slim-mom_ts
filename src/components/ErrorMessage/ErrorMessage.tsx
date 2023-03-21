@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import s from './ErrorMessage.module.scss';
-import style from '../NotFound/NotFound.module.scss';
+import style from '../../pages/NotFoundPage/NotFound.module.scss';
 
 interface IErrorMessage {
   status: string,

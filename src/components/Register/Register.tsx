@@ -1,8 +1,9 @@
-import { useState } from 'react';
-import { useForm, Controller } from 'react-hook-form';
+import { useState, FC } from 'react';
+import { useForm, Controller, SubmitHandler } from 'react-hook-form';
 import { register } from 'redux/auth/auth-opetations';
-import { useDispatch, useSelector } from 'react-redux';
 import { useMediaQuery } from 'react-responsive';
+import useAppDispatch from 'hooks/useAppDispatch';
+import useAppSelector from 'hooks/useAppSelecor';
 
 import s from './Register.module.scss';
 
@@ -11,22 +12,23 @@ import TextField from 'components/Shared/TextField';
 import Button from 'components/Shared/Button';
 import Container from 'components/Shared/Container';
 import ErrorMessage from '../ErrorMessage/ErrorMessage';
-import Modal from '../../components/Modal/Modal';
+import Modal from '../Modal/Modal';
+import { UserData } from 'types/auth.type';
 
 import bcgDesktop from '../../images/desktop/bcgD.png';
 import bcgDesktop2x from '../../images/desktop/bcgD@2x.png';
 
 import { getErrorLogin } from 'redux/auth/auth-selectors';
 
-const Register = () => {
+const Register: FC = () => {
   const isRetina = useMediaQuery({ query: '(min-resolution: 2dppx)' });
 
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   const [modalOpen, setModalOpen] = useState(false);
-  const errorLogin = useSelector(getErrorLogin);
+  const errorLogin = useAppSelector(getErrorLogin);
 
-  const { control, handleSubmit, reset } = useForm({
+  const { control, handleSubmit, reset } = useForm<UserData>({
     defaultValues: {
       username: '',
       email: '',
@@ -34,8 +36,8 @@ const Register = () => {
     },
   });
 
-  const onSubmit = (data, e) => {
-    e.preventDefault();
+  const onSubmit: SubmitHandler<UserData> = (data, e) => {
+    // e.preventDefault();
     dispatch(register(data));
     setModalOpen(true);
     reset();

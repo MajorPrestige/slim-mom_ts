@@ -1,11 +1,13 @@
+import React, { FC } from 'react';
 import { NavLink } from 'react-router-dom';
 
 import './burger.scss';
 
-export default function Burger() {
-  function openMenu(e) {
+const Burger: FC = () => {
+  function openMenu(e: React.MouseEvent) {
     e.preventDefault();
-    if (e.target.nodeName === 'NAV') {
+
+    if ((e.target as any).nodeName === 'NAV') {
       return;
     }
     e.currentTarget.classList.toggle('burger-menu_active');
@@ -28,4 +30,6 @@ export default function Burger() {
       </div>
     </>
   );
-}
+};
+
+export default Burger;

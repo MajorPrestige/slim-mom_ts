@@ -14,6 +14,10 @@ interface ClassNameProps {
   isActive: boolean;
 }
 
+const getClassName = ({ isActive }: ClassNameProps) => {
+  return isActive ? `${s.link} ${s.active}` : s.link;
+};
+
 const UserInfo: FC = () => {
   const isUserLogin = useAppSelector(getLogin);
   const userName = useAppSelector(getUserName);
@@ -23,10 +27,6 @@ const UserInfo: FC = () => {
     dispatch(logout());
     dispatch(clearData());
     dispatch(clearDay());
-  };
-
-  const getClassName = ({ isActive }: ClassNameProps) => {
-    return isActive ? `${s.link} ${s.active}` : s.link;
   };
 
   if (!isUserLogin) {

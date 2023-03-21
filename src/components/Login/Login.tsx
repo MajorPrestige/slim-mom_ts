@@ -65,6 +65,7 @@ const Login: FC = () => {
                 value={value}
                 control={control}
                 handleChange={onChange}
+
                 {...field.email}
               />
             )}
