@@ -49,7 +49,7 @@ const DiaryChooseProductList: FC<IDiaryChooseProductList> = ({
             <div className={s.overlay}>
               <h2 className={s.headTitle}>Виберіть продукт:</h2>
               <ul className={s.list}>
-                {searchProduct.map(({ _id, title, calories, weight }) => (
+                {searchProduct?.map(({ _id, title, calories, weight }) => (
                   <li key={_id} className={s.item} onClick={() => handleClick(_id)}>
                     <p className={s.title}> {title.ua}</p>
                     <div className={s.wrapper}>

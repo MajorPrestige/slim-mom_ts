@@ -1,7 +1,8 @@
-import { useEffect, useState } from 'react';
-import { useForm, Controller } from 'react-hook-form';
-import { useSelector, useDispatch } from 'react-redux';
+import { useEffect, useState, FC } from 'react';
+import { useForm, Controller, SubmitHandler } from 'react-hook-form';
 import { useMediaQuery } from 'react-responsive';
+import useAppSelector from 'hooks/useAppSelecor';
+import useAppDispatch from 'hooks/useAppDispatch';
 
 import s from './Login.module.scss';
 
@@ -18,17 +19,18 @@ import bcgDesktop2x from '../../images/desktop/bcgD@2x.png';
 import { getErrorLogin } from 'redux/auth/auth-selectors';
 import { clearNewUser } from 'redux/auth/auth-slice';
 import { login } from 'redux/auth/auth-opetations';
+import { UserLoginData } from 'types/auth.type';
 
-const Login = () => {
+const Login: FC = () => {
   const isRetina = useMediaQuery({ query: '(min-resolution: 2dppx)' });
 
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   const [modalOpen, setModalOpen] = useState(false);
 
-  const errorLogin = useSelector(getErrorLogin);
+  const errorLogin = useAppSelector(getErrorLogin);
 
-  const { control, handleSubmit, reset } = useForm({
+  const { control, handleSubmit, reset } = useForm<UserLoginData>({
     defaultValues: {
       email: '',
       password: '',
@@ -40,8 +42,8 @@ const Login = () => {
     // eslint-disable-next-line
   }, []);
 
-  const onSubmit = (data, e) => {
-    e.preventDefault();
+  const onSubmit: SubmitHandler<UserLoginData> = (data, e) => {
+    // e.preventDefault();
     dispatch(login(data));
     setModalOpen(true);
     reset();

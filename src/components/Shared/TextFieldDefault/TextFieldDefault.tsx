@@ -9,7 +9,7 @@ interface ITextFieldDefault {
   placeholder: string;
   required: boolean | undefined;
   pattern: string;
-  title: string;
+  title?: string;
   disabled: boolean | undefined;
   control?: any;
 }

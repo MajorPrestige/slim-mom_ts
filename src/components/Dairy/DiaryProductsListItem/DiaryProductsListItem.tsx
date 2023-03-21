@@ -1,4 +1,6 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { FC } from 'react';
+import useAppDispatch from 'hooks/useAppDispatch';
+import useAppSelector from 'hooks/useAppSelecor';
 
 import s from './DiaryProductsListItem.module.scss';
 
@@ -7,12 +9,12 @@ import { ReactComponent as Bin } from '../../../images/svg/removeBtn.svg';
 import { eatenProducts } from 'redux/day/day-selectors';
 import { deleteEatenProduct } from 'redux/day/day-operations';
 
-const DiaryProductsListItem = () => {
-  const dispatch = useDispatch();
+const DiaryProductsListItem: FC = () => {
+  const dispatch = useAppDispatch();
 
-  const eatenProductsList = useSelector(eatenProducts);
+  const eatenProductsList = useAppSelector(eatenProducts);
 
-  const removeProduct = id => {
+  const removeProduct = (id: string) => {
     dispatch(deleteEatenProduct(id));
   };
 

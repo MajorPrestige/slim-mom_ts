@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { useMediaQuery } from 'react-responsive';
-import { useSelector } from 'react-redux';
+import useAppSelector from 'hooks/useAppSelecor';
 import { Link, useLocation } from 'react-router-dom';
 
 import s from './Header.module.scss';
@@ -20,7 +20,7 @@ const Header: FC = () => {
   const { pathname } = useLocation();
   const isRender = pathname === '/login' || pathname === '/registration';
   const isPathcalculate = pathname === '/calculator-calories';
-  const isUserLogin = useSelector(getLogin);
+  const isUserLogin = useAppSelector(getLogin);
 
   if (isUserLogin) {
     if (isMobile) {

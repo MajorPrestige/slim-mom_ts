@@ -1,8 +1,12 @@
-import PropTypes from 'prop-types';
+import { FC } from 'react';
 import s from './ErrorMessage.module.scss';
 import style from '../NotFound/NotFound.module.scss';
 
-const ErrorMessage = ({ status }) => {
+interface IErrorMessage {
+  status: string,
+}
+
+const ErrorMessage: FC<IErrorMessage> = ({ status }) => {
   return (
     <div className={s.errorMessageBlock}>
       <div className={style.boo}>
@@ -15,11 +19,3 @@ const ErrorMessage = ({ status }) => {
 };
 
 export default ErrorMessage;
-
-ErrorMessage.defaultProps = {
-  status: {},
-};
-
-ErrorMessage.propTypes = {
-  status: PropTypes.string,
-};

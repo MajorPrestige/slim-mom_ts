@@ -9,7 +9,7 @@ interface TextFieldProps {
   placeholder: string;
   required: boolean | undefined;
   pattern?: string;
-  title: string;
+  title?: string;
   control?: any;
 }
 

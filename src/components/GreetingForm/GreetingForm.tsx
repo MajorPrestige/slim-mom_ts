@@ -1,12 +1,13 @@
+import { FC } from 'react';
 import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import useAppSelector from 'hooks/useAppSelecor';
 
 import s from './GreetingForm.module.scss';
 
 import { getUserName } from 'redux/auth/auth-selectors';
 
-export default function GreetingForm() {
-  const userName = useSelector(getUserName);
+const GreetingForm: FC = () => {
+  const userName = useAppSelector(getUserName);
   return (
     <div className={s.wrapper}>
       <h1 className={s.title}>Добрий день, {userName}</h1>
@@ -22,3 +23,5 @@ export default function GreetingForm() {
     </div>
   );
 }
+
+export default GreetingForm;
