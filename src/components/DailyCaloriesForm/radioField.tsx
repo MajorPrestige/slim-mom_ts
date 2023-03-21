@@ -1,11 +1,15 @@
-import PropTypes from 'prop-types';
 import s from './DailyCaloriesForm.module.scss';
 
-import { useState } from 'react';
+import { useState, FC, ChangeEvent } from 'react';
 
-export default function RadioField({ name, getTypeBlood }) {
-  const [radioResult, setActiveCheckbox] = useState('');
-  const [typeBlood, setTypeBlood] = useState(null);
+interface IRadioField {
+  name: string;
+  getTypeBlood: Function;
+}
+
+const RadioField: FC<IRadioField> = ({ name, getTypeBlood }) => {
+  const [radioResult, setActiveCheckbox] = useState<Number | null>(null);
+  const [typeBlood, setTypeBlood] = useState<String | null>(null);
 
   getTypeBlood(typeBlood);
 
@@ -21,7 +25,9 @@ export default function RadioField({ name, getTypeBlood }) {
                 name={name}
                 checked={idx === radioResult}
                 onClick={() => setActiveCheckbox(idx)}
-                onChange={e => setTypeBlood(e.target.value)}
+                onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                  setTypeBlood(e.target.value)
+                }
                 value={idx + 1}
                 placeholder="Blood type"
               />
@@ -33,14 +39,6 @@ export default function RadioField({ name, getTypeBlood }) {
       </div>
     </>
   );
-}
+};
 
-RadioField.defaultProps = {
-  getTypeBlood: () => {},
-  name: '',
-}
-
-RadioField.propTypes = {
-  getTypeBlood: PropTypes.func,
-  name: PropTypes.string,
-}
+export default RadioField;

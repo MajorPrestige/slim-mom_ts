@@ -1,33 +1,30 @@
-import { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { useForm, Controller } from 'react-hook-form';
-import PropTypes from 'prop-types';
+import { useState, FC } from 'react';
+import useAppDispatch from 'hooks/useAppDispatch';
+import useAppSelector from 'hooks/useAppSelecor';
+import { useForm, Controller, SubmitHandler } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
 
-import s from './DailyCaloriesForm.module.scss';
+import s from './CalcForm.module.scss';
 
+import SideBar from 'components/SideBar';
+import TextField from '../Shared/TextField/TextField';
 import { field } from '../Shared/TextField/fields';
 import Button from '../Shared/Button/Button';
-import TextField from '../Shared/TextField/TextField';
-import Modal from '../../components/Modal/Modal';
-import DailyCalorieIntake from 'components/DailyCalorieIntake';
-import ErrorMessage from '../ErrorMessage/ErrorMessage';
-import Container from 'components/Shared/Container';
 import TextFieldDefault from 'components/Shared/TextFieldDefault/TextFieldDefault';
+import { DailyFormDefaultValue } from 'types/useForm.type';
 
-import { getDailyRate, getErrorDaily } from 'redux/daily-rate/daily-rate-selectors';
-import { dailyRateInfo } from 'redux/daily-rate/daily-rate-operations';
+import { dailyRateUser } from 'redux/daily-rate/daily-rate-operations';
+import { getID } from 'redux/auth/auth-selectors';
 
-const DailyCaloriesForm = () => {
-  const dispatch = useDispatch();
+const CalcForm: FC = () => {
+  const [bloodType, setActiveCheckbox] = useState<Number | null>(null);
+  const navigate = useNavigate();
 
-  const [modalOpen, setModalOpen] = useState(false);
+  const id = useAppSelector(getID);
 
-  const [bloodType, setActiveCheckbox] = useState('');
+  const dispatch = useAppDispatch();
 
-  const dailyRateDate = useSelector(getDailyRate);
-  const errorDaily = useSelector(getErrorDaily);
-
-  const { control, handleSubmit, reset, register } = useForm({
+  const { control, register, handleSubmit, reset } = useForm<DailyFormDefaultValue>({
     defaultValues: {
       weight: '',
       height: '',
@@ -37,7 +34,10 @@ const DailyCaloriesForm = () => {
     },
   });
 
-  const onSubmit = (data, e) => {
+  const onSubmit: SubmitHandler<DailyFormDefaultValue> = (
+    data
+    // e: React.FormEvent<HTMLInputElement>
+  ) => {
     const numberData = {
       weight: Number(data.weight),
       height: Number(data.height),
@@ -45,17 +45,16 @@ const DailyCaloriesForm = () => {
       desiredWeight: Number(data.desiredWeight),
       bloodType: Number(data.bloodType),
     };
-    e.preventDefault();
 
-    dispatch(dailyRateInfo(numberData));
-    setActiveCheckbox('');
-    document.querySelector('body').classList.add('no-scroll');
-    setModalOpen(true);
+    // e.preventDefault();
+    dispatch(dailyRateUser({ id, ...numberData }));
     reset();
+
+    navigate('/dairy');
   };
 
   return (
-    <Container>
+    <div className={s.wrapper}>
       <form onSubmit={handleSubmit(onSubmit)} className={s.form}>
         <h1 className={s.title}>Розрахуйте свою денну норму калорій прямо зараз</h1>
         <div className={s.formParts}>
@@ -122,6 +121,7 @@ const DailyCaloriesForm = () => {
                 />
               )}
             />
+
             <div className={s.radioBlock}>
               {[...Array(4)].map((_, idx) => (
                 <div key={idx} className={s.listRadio}>
@@ -148,39 +148,9 @@ const DailyCaloriesForm = () => {
           <Button text="Схуднути" type="submit" btnClass="btn" />
         </div>
       </form>
-      {modalOpen && dailyRateDate && (
-        <Modal setModalOpen={setModalOpen} children={<DailyCalorieIntake />} />
-      )}
-      {modalOpen && errorDaily && (
-        <Modal
-          setModalOpen={setModalOpen}
-          children={<ErrorMessage status={errorDaily} />}
-        />
-      )}
-    </Container>
+      <SideBar />
+    </div>
   );
 };
 
-export default DailyCaloriesForm;
-
-DailyCaloriesForm.defaultProps = {
-  onSubmit: () => {},
-  dailyRateDate: () => {},
-  errorDaily: () => {},
-  onChange: () => {},
-  data: {},
-};
-
-DailyCaloriesForm.propTypes = {
-  onSubmit: PropTypes.func,
-  dailyRateDate: PropTypes.func,
-  errorDaily: PropTypes.func,
-  onChange: PropTypes.func,
-  data: PropTypes.shape({
-    weight: PropTypes.string,
-    height: PropTypes.string,
-    age: PropTypes.string,
-    desiredWeight: PropTypes.string,
-    bloodType: PropTypes.string,
-  }),
-};
+export default CalcForm;

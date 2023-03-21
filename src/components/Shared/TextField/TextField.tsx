@@ -8,8 +8,9 @@ interface TextFieldProps {
   handleChange: React.ChangeEventHandler<HTMLInputElement>;
   placeholder: string;
   required: boolean | undefined;
-  pattern: string;
+  pattern?: string;
   title: string;
+  control?: any;
 }
 
 const TextField: FC<TextFieldProps> = ({

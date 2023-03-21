@@ -1,28 +1,33 @@
-import { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { useForm, Controller } from 'react-hook-form';
-import { useNavigate } from 'react-router-dom';
+import { useState, FC } from 'react';
+import useAppDispatch from 'hooks/useAppDispatch';
+import useAppSelector from 'hooks/useAppSelecor';
+import { useForm, Controller, SubmitHandler } from 'react-hook-form';
+import s from './DailyCaloriesForm.module.scss';
 
-import s from './CalcForm.module.scss';
-
-import SideBar from 'components/SideBar';
-import TextField from '../Shared/TextField/TextField';
 import { field } from '../Shared/TextField/fields';
 import Button from '../Shared/Button/Button';
+import TextField from '../Shared/TextField/TextField';
+import Modal from '../Modal/Modal';
+import DailyCalorieIntake from 'components/DailyCalorieIntake/DailyCalorieIntake';
+import ErrorMessage from '../ErrorMessage/ErrorMessage';
+import Container from 'components/Shared/Container';
 import TextFieldDefault from 'components/Shared/TextFieldDefault/TextFieldDefault';
+import { DailyFormDefaultValue } from 'types/useForm.type';
 
-import { dailyRateUser } from 'redux/daily-rate/daily-rate-operations';
-import { getID } from 'redux/auth/auth-selectors';
+import { getDailyRate, getErrorDaily } from 'redux/daily-rate/daily-rate-selectors';
+import { dailyRateInfo } from 'redux/daily-rate/daily-rate-operations';
 
-const CalcForm = () => {
-  const [bloodType, setActiveCheckbox] = useState('');
-  const navigate = useNavigate();
+const DailyCaloriesForm: FC = () => {
+  const dispatch = useAppDispatch();
 
-  const id = useSelector(getID);
+  const [modalOpen, setModalOpen] = useState(false);
 
-  const dispatch = useDispatch();
+  const [bloodType, setActiveCheckbox] = useState<Number | null>(null);
 
-  const { control, register, handleSubmit, reset } = useForm({
+  const dailyRateDate = useAppSelector(getDailyRate);
+  const errorDaily = useAppSelector(getErrorDaily);
+
+  const { control, handleSubmit, reset, register } = useForm<DailyFormDefaultValue>({
     defaultValues: {
       weight: '',
       height: '',
@@ -32,7 +37,7 @@ const CalcForm = () => {
     },
   });
 
-  const onSubmit = (data, e) => {
+  const onSubmit: SubmitHandler<DailyFormDefaultValue> = (data, e: any) => {
     const numberData = {
       weight: Number(data.weight),
       height: Number(data.height),
@@ -40,20 +45,19 @@ const CalcForm = () => {
       desiredWeight: Number(data.desiredWeight),
       bloodType: Number(data.bloodType),
     };
-
     e.preventDefault();
-    dispatch(dailyRateUser({ id, ...numberData }));
-    reset();
 
-    navigate('/dairy');
+    dispatch(dailyRateInfo(numberData));
+    setActiveCheckbox(null);
+    document.querySelector('body')!.classList.add('no-scroll');
+    setModalOpen(true);
+    reset();
   };
 
   return (
-    <div className={s.wrapper}>
+    <Container>
       <form onSubmit={handleSubmit(onSubmit)} className={s.form}>
-        <h1 className={s.title}>
-          Розрахуйте свою денну норму калорій прямо зараз
-        </h1>
+        <h1 className={s.title}>Розрахуйте свою денну норму калорій прямо зараз</h1>
         <div className={s.formParts}>
           <div className={s.formPart}>
             <Controller
@@ -62,7 +66,6 @@ const CalcForm = () => {
               render={({ field: { onChange, value } }) => (
                 <TextField
                   value={value}
-                  name={'height'}
                   control={control}
                   handleChange={onChange}
                   {...field.height}
@@ -75,7 +78,6 @@ const CalcForm = () => {
               render={({ field: { onChange, value } }) => (
                 <TextField
                   value={value}
-                  name={'age'}
                   control={control}
                   handleChange={onChange}
                   {...field.age}
@@ -88,7 +90,6 @@ const CalcForm = () => {
               render={({ field: { onChange, value } }) => (
                 <TextField
                   value={value}
-                  name={'weight'}
                   control={control}
                   handleChange={onChange}
                   {...field.weight}
@@ -103,7 +104,6 @@ const CalcForm = () => {
               render={({ field: { onChange, value } }) => (
                 <TextField
                   value={value}
-                  name={'desiredWeight'}
                   control={control}
                   handleChange={onChange}
                   {...field.desiredWeight}
@@ -122,7 +122,6 @@ const CalcForm = () => {
                 />
               )}
             />
-
             <div className={s.radioBlock}>
               {[...Array(4)].map((_, idx) => (
                 <div key={idx} className={s.listRadio}>
@@ -149,9 +148,17 @@ const CalcForm = () => {
           <Button text="Схуднути" type="submit" btnClass="btn" />
         </div>
       </form>
-      <SideBar />
-    </div>
+      {modalOpen && dailyRateDate && (
+        <Modal setModalOpen={setModalOpen} children={<DailyCalorieIntake />} />
+      )}
+      {modalOpen && errorDaily && (
+        <Modal
+          setModalOpen={setModalOpen}
+          children={<ErrorMessage status={errorDaily} />}
+        />
+      )}
+    </Container>
   );
 };
 
-export default CalcForm;
+export default DailyCaloriesForm;

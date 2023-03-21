@@ -1,17 +1,20 @@
-import { useSelector } from 'react-redux';
+import { FC } from 'react';
 import { Link } from 'react-router-dom';
 import { nanoid } from '@reduxjs/toolkit';
-import PropTypes from 'prop-types';
 
 import s from './DailyCalorieIntake.module.scss';
 
 import { items } from './items';
 import Button from 'components/Shared/Button';
-import { getDailyRate,  getNotAllowedProducts} from 'redux/daily-rate/daily-rate-selectors';
+import {
+  getDailyRate,
+  getNotAllowedProducts,
+} from 'redux/daily-rate/daily-rate-selectors';
+import useAppSelector from 'hooks/useAppSelecor';
 
-const DailyCalorieIntake = () => {
-  const notAllowedProducts = useSelector(getNotAllowedProducts);
-  const dailyRate = Math.round(useSelector(getDailyRate));
+const DailyCalorieIntake: FC = () => {
+  const notAllowedProducts = useAppSelector(getNotAllowedProducts);
+  const dailyRate = Math.round(useAppSelector(getDailyRate) as number);
 
   let itemsList = [];
   if (notAllowedProducts.length === 0) {
@@ -23,8 +26,7 @@ const DailyCalorieIntake = () => {
   }
 
   function removeClassList() {
-    document.querySelector('body').classList.remove('no-scroll');
-    console.log(document.querySelector('body'));
+    document.querySelector('body')!.classList.remove('no-scroll');
   }
 
   return (
@@ -43,7 +45,7 @@ const DailyCalorieIntake = () => {
               Продукти, які не рекомендовані до вживання:
             </p>
             <ul className={s.menuGroupList}>
-              {itemsList.map(el => (
+              {itemsList.map((el) => (
                 <li key={nanoid()} className={s.menuGroupItems}>
                   {el}
                 </li>
@@ -65,13 +67,3 @@ const DailyCalorieIntake = () => {
 };
 
 export default DailyCalorieIntake;
-
-DailyCalorieIntake.defaultProps = {
-  notAllowedProducts: () => {},
-  dailyRate: () => {},
-};
-
-DailyCalorieIntake.propTypes = {
-  notAllowedProducts: PropTypes.func,
-  dailyRate: PropTypes.func,
-};
