@@ -1,7 +1,7 @@
 export type ProductDayInfo = {
   date: string;
   productId: string;
-  weight: number;
+  weight: number | null;
 };
 
 export type DayDiary = {

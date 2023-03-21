@@ -1,5 +1,6 @@
-import { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useState, useEffect, FC } from 'react';
+import useAppDispatch from 'hooks/useAppDispatch';
+import useAppSelector from 'hooks/useAppSelecor';
 import DatePicker from 'react-datepicker';
 import moment from 'moment';
 import uk from 'date-fns/locale/uk';
@@ -10,10 +11,10 @@ import s from './DiaryDateСalendar.module.scss';
 import { addDate } from 'redux/dairy-calendar/dairy-calendar-slice';
 import { getInfoByDay } from 'redux/day/day-operations';
 
-const DiaryDateСalendar = () => {
-  const dispatch = useDispatch();
+const DiaryDateСalendar: FC = () => {
+  const dispatch = useAppDispatch();
 
-  const date = useSelector(({ dairyCalendar }) => dairyCalendar.date);
+  const date = useAppSelector(({ dairyCalendar }) => dairyCalendar.date);
 
   const [isOpen, setIsOpen] = useState(false);
   const [startDate, setStartDate] = useState(new Date());
@@ -28,14 +29,14 @@ const DiaryDateСalendar = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const handleChange = e => {
+  const handleChange = (e: Date) => {
     setStartDate(e);
     setIsOpen(!isOpen);
     dispatch(addDate(moment(e).format('yyyy-MM-DD')));
     dispatch(getInfoByDay({ date: moment(e).format('yyyy-MM-DD') }));
   };
 
-  const handleClick = e => {
+  const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     setIsOpen(!isOpen);
   };

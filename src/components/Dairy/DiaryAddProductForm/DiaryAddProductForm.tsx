@@ -19,7 +19,7 @@ import { getSearchError } from 'redux/product-search/search-selectors';
 import { addWeight } from 'redux/dairy-calendar/dairy-calendar-slice';
 
 interface DiaryAddProductFormProps {
-  setModalOpen?: Dispatch<React.SetStateAction<boolean>>;
+  setModalOpen?: Dispatch<React.SetStateAction<boolean>> | undefined;
 }
 
 interface IUseFormDefaultValue {
