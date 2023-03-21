@@ -1,6 +1,18 @@
+import React, { FC } from 'react';
 import s from './TextField.module.scss';
 
-const TextField = ({
+interface TextFieldProps {
+  type: React.HTMLInputTypeAttribute;
+  name: string;
+  value: string | number | readonly string[] | undefined;
+  handleChange: React.ChangeEventHandler<HTMLInputElement>;
+  placeholder: string;
+  required: boolean | undefined;
+  pattern: string;
+  title: string;
+}
+
+const TextField: FC<TextFieldProps> = ({
   type,
   name,
   value,
@@ -27,8 +39,3 @@ const TextField = ({
   );
 };
 export default TextField;
-
-TextField.defaultProps = {
-  type: 'text',
-  required: false,
-};

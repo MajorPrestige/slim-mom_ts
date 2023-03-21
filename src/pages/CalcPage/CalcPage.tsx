@@ -1,6 +1,7 @@
+import { FC } from 'react';
 import CalculatorСalorieForm from 'components/CalcForm/CalcForm';
 
-const CalcPage = () => {
+const CalcPage: FC = () => {
   return (
     <>
       <CalculatorСalorieForm />

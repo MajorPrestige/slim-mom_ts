@@ -1,11 +1,11 @@
-import { FC } from 'react';
+import React, { FC } from 'react';
 import s from './TextFieldDefault.module.scss';
 
 interface ITextFieldDefault {
-  type: string;
+  type: React.HTMLInputTypeAttribute;
   name: string;
   value: string;
-  handleChange: () => void;
+  handleChange: React.ChangeEventHandler<HTMLInputElement>;
   placeholder: string;
   required: boolean | undefined;
   pattern: string;

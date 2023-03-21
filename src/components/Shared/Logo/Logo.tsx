@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useMediaQuery } from 'react-responsive';
-import { useSelector } from 'react-redux';
+import useAppSelector from 'hooks/useAppSelecor';
 
 import ld from '../../../images/logo/logo-desc.png';
 import ld2x from '../../../images/logo/logo-desc@2x.png';
@@ -17,7 +17,7 @@ const Logo = () => {
   const isMobile = useMediaQuery({ maxWidth: 767 });
   const isRetina = useMediaQuery({ query: '(min-resolution: 2dppx)' });
 
-  const isLogin = useSelector(getLogin);
+  const isLogin = useAppSelector(getLogin);
 
   return (
     <>
