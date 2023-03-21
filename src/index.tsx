@@ -12,7 +12,7 @@ import './index.scss';
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename='/slimmom_ts'>
       <Provider store={store}>
         <PersistGate loading={<Loader />} persistor={persistor}>
           <App />
