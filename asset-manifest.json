@@ -1,10 +1,10 @@
 {
   "files": {
     "main.css": "/slim-mom_ts/static/css/main.239681ee.css",
-    "main.js": "/slim-mom_ts/static/js/main.9486c56c.js",
-    "static/css/679.e4552cd4.chunk.css": "/slim-mom_ts/static/css/679.e4552cd4.chunk.css",
+    "main.js": "/slim-mom_ts/static/js/main.6ad96da5.js",
+    "static/css/679.68cf40d8.chunk.css": "/slim-mom_ts/static/css/679.68cf40d8.chunk.css",
     "static/js/679.a9f9bbdb.chunk.js": "/slim-mom_ts/static/js/679.a9f9bbdb.chunk.js",
-    "static/css/939.b6b6e08e.chunk.css": "/slim-mom_ts/static/css/939.b6b6e08e.chunk.css",
+    "static/css/939.80844d48.chunk.css": "/slim-mom_ts/static/css/939.80844d48.chunk.css",
     "static/js/939.f8fda3f2.chunk.js": "/slim-mom_ts/static/js/939.f8fda3f2.chunk.js",
     "static/css/820.bb3fc54f.chunk.css": "/slim-mom_ts/static/css/820.bb3fc54f.chunk.css",
     "static/js/820.0c62d79b.chunk.js": "/slim-mom_ts/static/js/820.0c62d79b.chunk.js",
@@ -83,10 +83,10 @@
     "static/media/back.svg": "/slim-mom_ts/static/media/back.24ce6b342eecfc3ce7e0.svg",
     "static/media/removeBtn.svg": "/slim-mom_ts/static/media/removeBtn.d66f88109a467da5b2e3c6f098eba38d.svg",
     "main.239681ee.css.map": "/slim-mom_ts/static/css/main.239681ee.css.map",
-    "main.9486c56c.js.map": "/slim-mom_ts/static/js/main.9486c56c.js.map",
-    "679.e4552cd4.chunk.css.map": "/slim-mom_ts/static/css/679.e4552cd4.chunk.css.map",
+    "main.6ad96da5.js.map": "/slim-mom_ts/static/js/main.6ad96da5.js.map",
+    "679.68cf40d8.chunk.css.map": "/slim-mom_ts/static/css/679.68cf40d8.chunk.css.map",
     "679.a9f9bbdb.chunk.js.map": "/slim-mom_ts/static/js/679.a9f9bbdb.chunk.js.map",
-    "939.b6b6e08e.chunk.css.map": "/slim-mom_ts/static/css/939.b6b6e08e.chunk.css.map",
+    "939.80844d48.chunk.css.map": "/slim-mom_ts/static/css/939.80844d48.chunk.css.map",
     "939.f8fda3f2.chunk.js.map": "/slim-mom_ts/static/js/939.f8fda3f2.chunk.js.map",
     "820.bb3fc54f.chunk.css.map": "/slim-mom_ts/static/css/820.bb3fc54f.chunk.css.map",
     "820.0c62d79b.chunk.js.map": "/slim-mom_ts/static/js/820.0c62d79b.chunk.js.map",
@@ -101,6 +101,6 @@
   },
   "entrypoints": [
     "static/css/main.239681ee.css",
-    "static/js/main.9486c56c.js"
+    "static/js/main.6ad96da5.js"
   ]
 }
