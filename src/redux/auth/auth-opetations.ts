@@ -24,7 +24,8 @@ export const register = createAsyncThunk(
       );
       return data;
     } catch (error) {
-      handleRejectWithValue(rejectWithValue, error);
+      const errorData = handleRejectWithValue(error);
+      return rejectWithValue(errorData);
     }
   }
 );
@@ -36,7 +37,8 @@ export const login = createAsyncThunk(
       const data = await axiosLogin(userData);
       return data;
     } catch (error) {
-      handleRejectWithValue(rejectWithValue, error);
+      const errorData = handleRejectWithValue(error);
+      return rejectWithValue(errorData);
     }
   }
 );
@@ -50,7 +52,8 @@ export const logout = createAsyncThunk(
       const data = await axiosLogout(accessToken);
       return data;
     } catch (error) {
-      handleRejectWithValue(rejectWithValue, error);
+      const errorData = handleRejectWithValue(error);
+      return rejectWithValue(errorData);
     }
   }
 );
@@ -62,14 +65,15 @@ export const getUser = createAsyncThunk(
       const data = await axiosGetUser(accessToken);
       return data;
     } catch (error) {
-      handleRejectWithValue(rejectWithValue, error);
+      const errorData = handleRejectWithValue(error);
+      return rejectWithValue(errorData);
     }
   }
 );
 
 export const refresh = createAsyncThunk(
   'auth/refresh',
-  async (sid: {sid: string}, { rejectWithValue, getState, dispatch }) => {
+  async (sid: { sid: string }, { rejectWithValue, getState, dispatch }) => {
     try {
       const { auth } = getState() as RootState;
       const refreshToken: string = auth.refreshToken;
@@ -78,7 +82,8 @@ export const refresh = createAsyncThunk(
       dispatch(getUser(newAccessToken));
       return data;
     } catch (error) {
-      handleRejectWithValue(rejectWithValue, error);
+      const errorData = handleRejectWithValue(error);
+      return rejectWithValue(errorData);
     }
   },
   {

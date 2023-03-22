@@ -12,7 +12,8 @@ export const dailyRateInfo = createAsyncThunk(
       const result = await axiosGetDailyRate(data);
       return result;
     } catch (error) {
-      handleRejectWithValue(rejectWithValue, error);
+      const errorData = handleRejectWithValue(error);
+      return rejectWithValue(errorData);
     }
   }
 );
@@ -31,7 +32,8 @@ export const dailyRateUser = createAsyncThunk(
       dispatch(getUser(accessToken));
       return result;
     } catch (error) {
-      handleRejectWithValue(rejectWithValue, error);
+      const errorData = handleRejectWithValue(error);
+      return rejectWithValue(errorData);
     }
   }
 );

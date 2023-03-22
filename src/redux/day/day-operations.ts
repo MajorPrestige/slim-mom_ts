@@ -14,7 +14,8 @@ export const postEatenProduct = createAsyncThunk(
       dispatch(getInfoByDay({ date }));
       return result;
     } catch (error) {
-      handleRejectWithValue(rejectWithValue, error);
+      const errorData = handleRejectWithValue(error);
+      return rejectWithValue(errorData);
     }
   }
 );
@@ -26,7 +27,8 @@ export const getInfoByDay = createAsyncThunk(
       const result = await axiosDayInfo(date);
       return result;
     } catch (error) {
-      handleRejectWithValue(rejectWithValue, error);
+      const errorData = handleRejectWithValue(error);
+      return rejectWithValue(errorData);
     }
   }
 );
@@ -37,7 +39,7 @@ export const deleteEatenProduct = createAsyncThunk(
     try {
       const { dairyCalendar, dayProduct, auth } = getState() as RootState;
       const date: string = dairyCalendar.date;
-      const id:string = dayProduct.aboutDay.id;
+      const id: string = dayProduct.aboutDay.id;
       const accessToken: string = auth.accessToken;
 
       const result = await fetchDeleteDay(
@@ -51,7 +53,8 @@ export const deleteEatenProduct = createAsyncThunk(
 
       return result;
     } catch (error) {
-      handleRejectWithValue(rejectWithValue, error);
+      const errorData = handleRejectWithValue(error);
+      return rejectWithValue(errorData);
     }
   }
 );
