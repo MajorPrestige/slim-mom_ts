@@ -1,8 +1,9 @@
 @use './styles/mixins';
-@import-normalize;
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import-normalize;
 
 
 @import './styles/fonts';

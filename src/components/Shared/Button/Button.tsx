@@ -1,11 +1,11 @@
-import { FC } from 'react';
+import React, { FC } from 'react';
 import s from './Button.module.scss';
 
 interface ButtonProps {
   text: string;
   type: 'submit' | 'button' | 'reset' | undefined;
   btnClass: string;
-  handleClick: () => any;
+  handleClick: React.MouseEventHandler<HTMLButtonElement>;
 }
 
 const Button: FC<Partial<ButtonProps>> = ({

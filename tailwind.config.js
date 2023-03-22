@@ -21,8 +21,19 @@ module.exports = {
       'text-color': '#212121',
       'second-text-color': '#9b9faa',
       'border-color': '#e0e0e0',
+      'box-shadow': 'rgba(252, 132, 45, 0.5)',
     },
-    extend: {},
+    extend: {
+      fontFamily: {
+        verdana: ['Verdana', 'Geneva', 'sans-serif'],
+      },
+      boxShadow: {
+        'btn-shadow': '0px 4px 10px rgba(252, 132, 45, 0.5)',
+      },
+      outlineWidth: {
+        w0: 0,
+      },
+    },
   },
   plugins: [require('tailwindcss-retina')],
 };
