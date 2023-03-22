@@ -1,60 +1,24 @@
 .navDesct {
-  
-
-  padding-bottom: 5px;
-  position: relative;
-
-  &:before {
-    content: '';
-    display: block;
-    position: absolute;
-    width: 32px;
-    height: 0px;
-    left: -34px;
-    top: 5px;
-
-    border: 2px solid var(--border-color);
-    transform: rotate(90deg);
-  }
+  @apply relative pb-[5px] before:content-[''] before:absolute before:top-[5px] before:left-[-34px] before:h-0 before:w-8 before:rotate-90 before:border-2 before:border-solid before:border-border-color
+  ;
 }
 
 .navDesct a {
-  text-decoration: none;
-  font-family: 'GothamPro';
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 13px;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-
-  &:last-child {
-    margin-left: 16px;
-  }
+  @apply font-gotham text-[14px] font-bold uppercase leading-[13px] tracking-[0.04em] no-underline last:ml-4;
 }
 
 .link {
-  color: var(--second-text-color);
+  @apply relative inline-block text-second-text-color transition-all;
   background-size: 200% 100%;
   background-position: -100%;
-  display: inline-block;
-  position: relative;
-  transition: all 0.3s ease-in-out;
 }
 
 .active {
-  color: #212121;
+  @apply text-text-color;
 }
 
 .link:before {
-  content: '';
-  background: var(--second-text-color);
-  display: block;
-  position: absolute;
-  bottom: -3px;
-  left: 0;
-  width: 0;
-  height: 2px;
-  transition: all 0.3s ease-in-out;
+  @apply absolute bottom-[-3px] left-0 block h-[2px] w-0 bg-second-text-color content-[''] transition-all;
 }
 
 .link:hover {
@@ -62,5 +26,5 @@
 }
 
 .link:hover::before {
-  width: 100%;
+  @apply w-full;
 }

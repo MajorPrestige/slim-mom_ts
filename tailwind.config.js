@@ -32,6 +32,7 @@ module.exports = {
     extend: {
       fontFamily: {
         verdana: ['Verdana', 'Geneva', 'sans-serif'],
+        gotham: ['GothamPro', 'sans-serif'],
       },
       boxShadow: {
         'btn-shadow': '0px 4px 10px rgba(252, 132, 45, 0.5)',
@@ -46,7 +47,6 @@ module.exports = {
       transitionTimingFunction: {
         DEFAULT: 'ease-in-out',
       },
-
     },
   },
   plugins: [require('tailwindcss-retina')],

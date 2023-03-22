@@ -48,6 +48,6 @@
   display: none;
 
   @include mixins.mq(desktop) {
-    @apply absolute bottom-0 right-0 z-[-1] block w-[1280px];
+    @apply absolute bottom-0 right-0 z-[-1] w-[1280px] block;
   }
 }
