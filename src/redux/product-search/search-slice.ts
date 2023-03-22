@@ -31,7 +31,7 @@ const getProductSlice = createSlice({
       action: PayloadAction<StoreError>
     ) => {
       store.loading = false;
-      store.error = action.payload.data.message;
+      store.error = action.payload;
     },
   },
 });
