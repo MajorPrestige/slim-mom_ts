@@ -10,8 +10,9 @@
   }
 
   @include mixins.mq(desktop) {
-    @apply min-h-screen min-w-[517px] flex-col items-center justify-start pt-[150px];
+    @apply min-w-[517px] flex-col items-center justify-start pt-[150px];
 
+    min-height: calc(100vh - 130px);
     background-image: url(../../images/desktop/layer2.png);
     background-position: top -122px right -13px;
     background-repeat: no-repeat;
