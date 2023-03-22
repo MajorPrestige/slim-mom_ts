@@ -11,5 +11,5 @@
 }
 
 .link:before {
-  @apply absolute bottom-[-3px] left-0 block h-[2px] w-0 bg-second-text-color transition-all content-[''];
+  @apply absolute bottom-[-3px] left-0 block h-[2px] w-0 bg-second-text-color content-[''] transition-all;
 }
