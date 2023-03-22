@@ -19,11 +19,11 @@
 }
 
 .sum {
-  @apply mb-[30px] w-[280px] tablet:mr-[97px] tablet:w-[290px] desktop:mr-0 desktop:mb-[60px];
+  @apply mb-[30px] w-[280px] tablet:mr-[97px] tablet:w-[290px] desktop:mb-[60px] desktop:mr-0;
 }
 
 .title_sidebar {
-  @apply mb-5 text-[14px] font-bold leading-[1.21] tracking-[0.04em] tablet:mb-[35px];
+  @apply mb-5 text-[14px] leading-[1.21] tracking-[0.04em] tablet:mb-[35px] font-bold;
 }
 
 .item_sidebar {
@@ -35,11 +35,11 @@
 }
 
 .menuGroupList {
-  @apply h-[305px] w-[280px] list-none overflow-y-auto overflow-x-hidden tablet:h-[305px] tablet:w-[240px] desktop:h-[315px];
+  @apply h-[305px] w-[280px] overflow-y-auto overflow-x-hidden tablet:h-[305px] tablet:w-[240px] desktop:h-[315px] list-none;
 }
 
 .menuGroupItems {
-  @apply mb-5 w-[255px] text-xs font-normal tracking-[0.04em] text-second-text-color tablet:mb-[15px] tablet:w-[235px] desktop:w-[230px];
+  @apply mb-5 w-[255px] font-normal tracking-[0.04em] text-second-text-color tablet:mb-[15px] tablet:w-[235px] desktop:w-[230px] text-xs;
 }
 
 input[name='filter'] {
