@@ -1,9 +1,6 @@
 @use '../../styles/mixins';
 
 .form {
-  @include mixins.mq(tablet-only) {
-    height: 944px;
-  }
   @include mixins.mq(desktop) {
     width: 608px;
   }
