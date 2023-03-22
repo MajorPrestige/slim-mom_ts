@@ -66,10 +66,10 @@ const SideBar: FC = () => {
     <div className={styles.container_sidebar}>
       <div className={styles.sum}>
         <h3 className={styles.title_sidebar}>Резюме за {date}</h3>
-        <ul className={styles.list_sidebar}>
+        <ul className="w-[280px]">
           <li className={styles.item_sidebar}>
             <p className={styles.text_sidebar_sum}>Залишилося</p>
-            <span className={styles.data}>
+            <span className="desktop:mr-10">
               {kcalLeft
                 ? Math.floor(kcalLeft) + ' kcal'
                 : kcalLeft2
@@ -79,7 +79,7 @@ const SideBar: FC = () => {
           </li>
           <li className={styles.item_sidebar}>
             <p className={styles.text_sidebar}>Спожилося</p>
-            <span className={styles.data}>
+            <span className="desktop:mr-10">
               {kcalConsumed
                 ? Math.floor(kcalConsumed) + ' kcal'
                 : kcalConsumed2
@@ -89,7 +89,7 @@ const SideBar: FC = () => {
           </li>
           <li className={styles.item_sidebar}>
             <p className={styles.text_sidebar}>Добова норма</p>
-            <span className={styles.data}>
+            <span className="desktop:mr-10">
               {dailyRate
                 ? Math.floor(dailyRate) + ' kcal'
                 : dailyRate2
@@ -99,7 +99,7 @@ const SideBar: FC = () => {
           </li>
           <li className={styles.item_sidebar}>
             <p className={styles.text_sidebar}>% від норми</p>
-            <span className={styles.data}>
+            <span className="desktop:mr-10">
               {percentsOfDailyRate
                 ? Math.floor(percentsOfDailyRate) + ' %'
                 : percentsOfDailyRate2
@@ -109,7 +109,7 @@ const SideBar: FC = () => {
           </li>
         </ul>
       </div>
-      <div className={styles.food}>
+      <div className="w-[280px]">
         <h3 className={styles.title_sidebar}>Не рекомендована їжа</h3>
         {notAllowedProducts?.length > 0 && (
           <TextFieldDefault handleChange={filterRecommendedFood} {...field.filter} />

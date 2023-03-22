@@ -1,128 +1,49 @@
 @use '../../styles/mixins';
 .container_sidebar {
-  padding: 40px 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background: var(--background-color);
+  @apply flex flex-col items-center bg-background-color py-10 px-5;
 
   @include mixins.mq(tablet) {
-    padding: 80px 32px;
-    flex-direction: row;
-    justify-content: center;
-    align-items: start;
+    @apply flex-row items-start justify-center py-20 px-8;
     background-image: url(../../images/tablet/layer411.png);
     background-position: top -72px right -264px;
     background-repeat: no-repeat;
   }
 
   @include mixins.mq(desktop) {
+    @apply min-h-screen min-w-[517px] flex-col items-center justify-start pt-[150px];
+
     background-image: url(../../images/desktop/layer2.png);
     background-position: top -122px right -13px;
     background-repeat: no-repeat;
-    flex-direction: column;
-    justify-content: start;
-    align-items: center;
-    min-width: 517px;
-    min-height: 100vh;
-    padding-top: 150px;
   }
 }
 
 .sum {
-  width: 280px;
-  margin-bottom: 30px;
-
-  @include mixins.mq(tablet) {
-    width: 290px;
-    margin-right: 97px;
-  }
-
-  @include mixins.mq(desktop) {
-    margin-right: 0;
-    margin-bottom: 60px;
-  }
+  @apply mb-[30px] w-[280px] tablet:mr-[97px] tablet:w-[290px] desktop:mr-0 desktop:mb-[60px];
 }
 
 .title_sidebar {
-  margin-bottom: 20px;
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 1.21;
-  letter-spacing: 0.04em;
-
-  @include mixins.mq(tablet) {
-    margin-bottom: 35px;
-  }
-}
-.list_sidebar {
-  width: 280px;
+  @apply mb-5 text-[14px] font-bold leading-[1.21] tracking-[0.04em] tablet:mb-[35px];
 }
 
 .item_sidebar {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  height: 28px;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 1.21;
-  letter-spacing: 0.04em;
-  color: var(--second-text-color);
-}
-
-.data {
-  @include mixins.mq(desktop) {
-    margin-right: 40px;
-  }
+  @apply flex h-7 items-baseline justify-between text-[14px] font-normal leading-[1.21] tracking-[0.04em] text-second-text-color;
 }
 
 .text_sidebar_food {
-  font-size: 14px;
-  letter-spacing: 0.04em;
-  color: var(--second-text-color);
+  @apply text-[14px] tracking-[0.04em] text-second-text-color;
 }
 
-.food {
-  width: 280px;
-}
 .menuGroupList {
-  width: 280px;
-  height: 305px;
-  list-style-type: none;
-  overflow-y: auto;
-  overflow-x: hidden;
-  @include mixins.mq(tablet) {
-    width: 240px;
-    height: 305px;
-  }
-  @include mixins.mq(desktop) {
-    height: 315px;
-  }
+  @apply h-[305px] w-[280px] list-none overflow-y-auto overflow-x-hidden tablet:h-[305px] tablet:w-[240px] desktop:h-[315px];
 }
+
 .menuGroupItems {
-  width: 255px;
-  margin-bottom: 20px;
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 1.214;
-  letter-spacing: 0.04em;
-  color: var(--second-text-color);
-  @include mixins.mq(tablet) {
-    margin-bottom: 15px;
-    width: 235px;
-  }
-  @include mixins.mq(desktop) {
-    width: 230px;
-  }
+  @apply mb-5 w-[255px] text-xs font-normal tracking-[0.04em] text-second-text-color tablet:mb-[15px] tablet:w-[235px] desktop:w-[230px];
 }
 
 input[name='filter'] {
-  color: var(--second-text-color);
-  background-color: var(--background-color);
-  border-bottom: 1px solid var(--second-text-color);
-  font-weight: 600;
+  @apply border-b-[1px] border-solid bg-main-color font-semibold text-second-text-color;
 }
 
 /* width */

@@ -12,6 +12,12 @@ module.exports = {
       desktop: { min: '1280px' },
       'not-desktop': { max: '1279.98px' },
     },
+    backgroundSize: {
+      auto: 'auto',
+      cover: 'cover',
+      contain: 'contain',
+      link: '200% 100%',
+    },
     colors: {
       transparent: 'transparent',
       current: 'currentColor',
@@ -32,6 +38,13 @@ module.exports = {
       },
       outlineWidth: {
         w0: 0,
+      },
+      transitionDuration: {
+        DEFAULT: '300ms',
+      },
+
+      transitionTimingFunction: {
+        DEFAULT: 'ease-in-out',
       },
     },
   },

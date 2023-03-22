@@ -1,5 +1,4 @@
 import React, { FC } from 'react';
-import s from './TextFieldDefault.module.scss';
 
 interface ITextFieldDefault {
   type: React.HTMLInputTypeAttribute;
