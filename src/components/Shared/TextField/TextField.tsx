@@ -25,7 +25,7 @@ const TextField: FC<TextFieldProps> = ({
   return (
     <label className="group relative mb-10 inline-block h-12">
       <input
-        className="peer absolute top-0 left-0 mb-10 inline-block h-12 rounded-none border-b-[1px] border-solid border-l-transparent border-r-transparent border-t-transparent border-b-border-color bg-transparent text-[14px]  font-normal leading-normal tracking-[1px]  text-second-text-color shadow-none transition-all duration-200 focus:border-b-accent-color focus:bg-transparent focus:outline-w0 tablet:w-[240px]"
+        className="peer absolute top-0 left-0 mb-10 inline-block h-12 w-full rounded-none border-b-[1px] border-solid border-l-transparent border-r-transparent border-t-transparent border-b-border-color bg-transparent text-[14px] font-normal leading-normal tracking-[1px]  text-second-text-color shadow-none transition-all duration-200 focus:border-b-accent-color focus:bg-transparent focus:outline-w0 tablet:w-[240px]"
         type={type}
         name={name}
         value={value}
