@@ -22,31 +22,16 @@
 }
 
 .title {
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 13px;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: var(--accent-color);
-  text-align: center;
-  margin-bottom: 60px;
-
-  @include mixins.mq(tablet) {
-    text-align: left;
-  }
+  @apply mb-[60px] text-center text-[14px] font-bold uppercase leading-[13px] tracking-[0.04em] text-accent-color tablet:text-left;
 }
 
 .form {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
+  @apply flex flex-col justify-center;
 }
+
 .wrap {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  margin-top: 60px;
+  @apply mt-[60px] flex flex-col items-center justify-center;
+
   & button:first-child {
     margin-bottom: 20px;
   }
@@ -63,11 +48,6 @@
   display: none;
 
   @include mixins.mq(desktop) {
-    display: block;
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 1280px;
-    z-index: -1;
+    @apply block absolute bottom-0 w-[1280px] z-[-1] right-0;
   }
 }

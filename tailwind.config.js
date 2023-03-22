@@ -46,6 +46,7 @@ module.exports = {
       transitionTimingFunction: {
         DEFAULT: 'ease-in-out',
       },
+
     },
   },
   plugins: [require('tailwindcss-retina')],
