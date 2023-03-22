@@ -43,7 +43,7 @@
 }
 
 input[name='filter'] {
-  @apply border-b-[1px] border-solid bg-main-color font-semibold text-second-text-color;
+  @apply border-b-[1px] border-solid bg-transparent font-semibold text-second-text-color;
 }
 
 /* width */
