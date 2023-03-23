@@ -56,6 +56,7 @@ module.exports = {
       modal: '#eff1f3',
       blue: '#264061',
       red: "#f84147",
+      calendar: '#aeaeae',
     },
     extend: {
       gap:{

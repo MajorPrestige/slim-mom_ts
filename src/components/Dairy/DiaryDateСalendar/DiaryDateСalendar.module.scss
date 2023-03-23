@@ -1,60 +1,18 @@
 @use '../../../styles/mixins';
 
 .btnInput {
-  position: relative;
-
-  padding: 0px;
-
-  font-weight: 700;
-  font-size: 18px;
-  line-height: 1.22;
-
-  background-color: var(--main-color);
-
-  border: none;
+  @apply relative p-0 font-bold text-18 leading-1.2 bg-main-color border-none tablet:text-[34px] tablet:font-bold;
 
   &:after {
-    content: '';
-    position: absolute;
-
-    margin-left: 20px;
-
-    width: 20px;
-    height: 20px;
     background-image: url(/images/svg/calendar.svg);
-
-    @include mixins.mq(tablet) {
-      top: 25%;
-    }
-  }
-
-  @include mixins.mq(tablet) {
-    font-weight: 700;
-    font-size: 34px;
-    line-height: 1.20;
+    @apply content-[''] absolute ml-5 w-5 h-5 tablet:top-1/4;
   }
 }
 
 .dateOverlay {
-  position: absolute;
-  margin-top: 10px;
-  z-index: 10;
+  @apply absolute mt-2.5 z-10;
 
   &::before {
-    box-sizing: content-box;
-    position: absolute;
-    top: -7px;
-    left: 48%;
-    height: 0;
-    width: 1px;
-    content: "";
-    z-index: 2;
-    border: 8px solid transparent;
-    border-top: none;
-    border-bottom-color: #aeaeae;
-
-    @include mixins.mq(tablet) {
-      left: 81%;
-    }
+    @apply box-content absolute content-[''] top-[-7px] left-[48%] h-0 w-[1px] z-[2] tablet:left-[81%] border-8 border-solid border-transparent border-t-0 border-b-calendar;
   }
 }
