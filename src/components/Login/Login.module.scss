@@ -5,7 +5,7 @@
 
   @include mixins.mq(tablet) {
     padding-top: 240px;
-    height: 100vh;
+    min-height: 100vh;
     background-image: image-set(
       url(../../images/tablet/tabletx1.png) 1x,
       url(../../images/tablet/tabletx2.png) 2x
@@ -16,37 +16,26 @@
 
   @include mixins.mq(desktop) {
     padding-top: 160px;
-    height: auto;
+    min-height: calc(100vh - 166px);
     background-image: none;
   }
 }
 
-.title {
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 13px;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: var(--accent-color);
-  text-align: center;
-  margin-bottom: 60px;
+.imgDesktop {  
+  @apply not-desktop:hidden fixed bottom-0 right-0 z-[-1] w-[1280px] block;
+}
 
-  @include mixins.mq(tablet) {
-    text-align: left;
-  }
+.title {
+  @apply mb-[60px] text-center text-[14px] font-bold uppercase leading-[13px] tracking-[0.04em] text-accent-color tablet:text-left;
 }
 
 .form {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
+  @apply flex flex-col justify-center;
 }
+
 .wrap {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  margin-top: 60px;
+  @apply mt-[60px] flex flex-col items-center justify-center;
+  
   & button:first-child {
     margin-bottom: 20px;
   }
@@ -59,15 +48,4 @@
   }
 }
 
-.imgDesktop {
-  display: none;
 
-  @include mixins.mq(desktop) {
-    display: block;
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 1280px;
-    z-index: -1;
-  }
-}

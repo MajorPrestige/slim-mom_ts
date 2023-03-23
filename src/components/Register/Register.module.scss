@@ -5,7 +5,7 @@
 
   @include mixins.mq(tablet) {
     padding-top: 240px;
-    height: 100vh;
+    min-height: 100vh;
     background-image: image-set(
       url(../../images/tablet/tabletx1.png) 1x,
       url(../../images/tablet/tabletx2.png) 2x
@@ -16,9 +16,13 @@
 
   @include mixins.mq(desktop) {
     padding-top: 160px;
-    height: auto;
     background-image: none;
+    min-height: calc(100vh - 166px);
   }
+}
+
+.imgDesktop {
+  @apply not-desktop:hidden fixed bottom-0 right-0 z-[-1] w-[1280px] block;
 }
 
 .title {
@@ -41,13 +45,5 @@
     & button:first-child {
       margin-right: 32px;
     }
-  }
-}
-
-.imgDesktop {
-  display: none;
-
-  @include mixins.mq(desktop) {
-    @apply absolute bottom-0 right-0 z-[-1] w-[1280px] block;
   }
 }

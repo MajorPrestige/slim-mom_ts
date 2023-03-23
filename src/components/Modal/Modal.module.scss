@@ -1,53 +1,15 @@
 @use '../../styles/mixins';
 
 .overlay {
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(33, 33, 33, 0.12);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: fixed;
-  top: 0;
-  right: 0;
-  z-index: 999;
+  @apply w-screen h-screen bg-overlay z-[999] flex items-center justify-center fixed top-0 right-0 ;
 }
 
 .overlayDairyPage {
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(33, 33, 33, 0.12);
-  display: flex;
-  justify-content: center;
-  position: fixed;
-  top: 87px;
-  right: 0;
-  z-index: 999;
+  @apply w-screen h-screen bg-overlay flex justify-center fixed top-[87px] z-[999] right-0; 
 }
 
 .modalDairyPage {
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  width: 100%;
-
-  overflow-y: scroll;
-  height: 100%;
-
-  background: var(--main-color);
-  box-shadow: 0px 22px 40px rgba(0, 0, 0, 0.1);
-
-  @include mixins.mq(tablet) {
-    width: 672px;
-    height: 573px;
-
-    overflow-y: unset;
-  }
-
-  @include mixins.mq(desktop) {
-    width: 573px;
-    height: 672px;
-  }
+  @apply flex flex-col relative w-full h-full overflow-y-scroll bg-main-color shadow-modal tablet:w-[672px] tablet:h-[573px] desktop:w-[573px] desktop:h-[672px];
 }
 
 .modal {

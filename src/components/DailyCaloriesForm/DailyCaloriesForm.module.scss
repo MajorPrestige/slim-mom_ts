@@ -1,6 +1,7 @@
 @use '../../styles/mixins';
 
 .form {
+  padding-bottom: 20px;
   @include mixins.mq(desktop) {
     width: 608px;
   }

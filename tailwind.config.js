@@ -28,6 +28,7 @@ module.exports = {
       'second-text-color': '#9b9faa',
       'border-color': '#e0e0e0',
       'box-shadow': 'rgba(252, 132, 45, 0.5)',
+      'overlay': 'rgba(33, 33, 33, 0.12)',
     },
     extend: {
       fontFamily: {
@@ -36,6 +37,7 @@ module.exports = {
       },
       boxShadow: {
         'btn-shadow': '0px 4px 10px rgba(252, 132, 45, 0.5)',
+        'modal': '0px 22px 40px rgba(0, 0, 0, 0.1)'
       },
       outlineWidth: {
         w0: 0,
