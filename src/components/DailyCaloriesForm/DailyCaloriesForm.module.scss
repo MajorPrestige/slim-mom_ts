@@ -1,5 +1,3 @@
-@use '../../styles/mixins';
-
 .form {
   @apply desktop:w-[608px] pb-5;
 }
@@ -13,7 +11,7 @@
 }
 
 .label {
-  @apply flex items-center justify-center;
+  @apply flex items-center justify-center cursor-pointer;
 }
 
 .title {
