@@ -29,6 +29,7 @@ module.exports = {
       'border-color': '#e0e0e0',
       'box-shadow': 'rgba(252, 132, 45, 0.5)',
       'overlay': 'rgba(33, 33, 33, 0.12)',
+      'modal': '#eff1f3',
     },
     extend: {
       fontFamily: {

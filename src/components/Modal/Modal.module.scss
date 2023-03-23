@@ -1,68 +1,33 @@
 @use '../../styles/mixins';
 
 .overlay {
-  @apply w-screen h-screen bg-overlay z-[999] flex items-center justify-center fixed top-0 right-0 ;
+  @apply fixed top-0 right-0 z-[999] flex h-screen w-screen items-center justify-center bg-overlay;
 }
 
 .overlayDairyPage {
-  @apply w-screen h-screen bg-overlay flex justify-center fixed top-[87px] z-[999] right-0; 
+  @apply fixed top-[87px] right-0 z-[999] flex h-screen w-screen justify-center bg-overlay;
 }
 
 .modalDairyPage {
-  @apply flex flex-col relative w-full h-full overflow-y-scroll bg-main-color shadow-modal tablet:w-[672px] tablet:h-[573px] desktop:w-[573px] desktop:h-[672px];
+  @apply relative flex h-full w-full flex-col overflow-y-scroll bg-main-color tablet:h-[573px] tablet:w-[672px] desktop:h-[672px] desktop:w-[573px] shadow-modal;
 }
 
 .modal {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: relative;
-  width: 100%;
-  height: 100%;
-  background: var(--main-color);
-  box-shadow: 0px 22px 40px rgba(0, 0, 0, 0.1);
-
-  @include mixins.mq(tablet) {
-    width: 672px;
-    height: 573px;
-  }
-
-  @include mixins.mq(desktop) {
-    width: 573px;
-    height: 672px;
-  }
+  @apply relative flex h-full w-full flex-col items-center bg-main-color tablet:h-[573px] tablet:w-[672px] desktop:h-[672px] desktop:w-[573px] shadow-modal;
 }
 
 .closeM {
-  position: absolute;
-  cursor: pointer;
-  width: 20px;
-  height: 20px;
+  @apply absolute top-[18px] left-5 h-5 w-5 cursor-pointer bg-no-repeat;
   background-image: url('../../images/modal/back.svg');
-  background-repeat: no-repeat;
-  top: 18px;
-  left: 20px;
 }
 
 .closeOther {
   @include mixins.mq(tablet) {
-    position: absolute;
-    cursor: pointer;
-    width: 20px;
-    height: 20px;
+    @apply absolute top-5 right-5 h-5 w-5 cursor-pointer bg-no-repeat;
     background-image: url('../../images/modal/close.svg');
-    background-repeat: no-repeat;
-    top: 20px;
-    right: 20px;
   }
 }
 
 .mobileClose {
-  width: 100%;
-  height: 40px;
-  background-color: #eff1f3;
-
-  @include mixins.mq(tablet) {
-    display: none;
-  }
+  @apply w-full h-10 bg-modal tablet:hidden;
 }
