@@ -5,14 +5,11 @@ module.exports = {
     fontSize: {
       14: '14px',
       16: '16px',
+      18: '18px',
+      20: '20px',
+      22: '22px',
+      28: '28px',
       xs: '0.75rem',
-      sm: '0.8rem',
-      base: '1rem',
-      xl: '1.25rem',
-      '2xl': '1.563rem',
-      '3xl': '1.953rem',
-      '4xl': '2.441rem',
-      '5xl': '3.052rem',
     },
     lineHeight: {
       1.2: '1.2',
@@ -55,17 +52,21 @@ module.exports = {
       'second-text-color': '#9b9faa',
       'border-color': '#e0e0e0',
       'box-shadow': 'rgba(252, 132, 45, 0.5)',
-      'overlay': 'rgba(33, 33, 33, 0.12)',
-      'modal': '#eff1f3',
+      overlay: 'rgba(33, 33, 33, 0.12)',
+      modal: '#eff1f3',
+      blue: '#264061',
     },
     extend: {
+      margin: {
+        15: '60px',
+      },
       fontFamily: {
         verdana: ['Verdana', 'Geneva', 'sans-serif'],
         gotham: ['GothamPro', 'sans-serif'],
       },
       boxShadow: {
         'btn-shadow': '0px 4px 10px rgba(252, 132, 45, 0.5)',
-        'modal': '0px 22px 40px rgba(0, 0, 0, 0.1)'
+        modal: '0px 22px 40px rgba(0, 0, 0, 0.1)',
       },
       outlineWidth: {
         w0: 0,
