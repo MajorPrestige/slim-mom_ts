@@ -55,6 +55,7 @@ const CalcForm: FC = () => {
 
   return (
     <div className={s.wrapper}>
+      <div className='tablet-only:flex tablet-only:justify-center'>
       <form onSubmit={handleSubmit(onSubmit)} className={s.form}>
         <h1 className={s.title}>Розрахуйте свою денну норму калорій прямо зараз</h1>
         <div className={s.formParts}>
@@ -148,6 +149,7 @@ const CalcForm: FC = () => {
           <Button text="Схуднути" type="submit" btnClass="btn" />
         </div>
       </form>
+      </div>
       <SideBar />
     </div>
   );

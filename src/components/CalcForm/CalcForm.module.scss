@@ -128,10 +128,10 @@
 
 .buttonPosition {
   display: flex;
-  justify-content: center;
+  justify-content: left;
 
-  @include mixins.mq(tablet) {
-    justify-content: left;
+  @include mixins.mq(tablet-before) {
+    margin-left: 49px;
   }
 
   @include mixins.mq(desktop) {

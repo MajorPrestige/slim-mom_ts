@@ -86,7 +86,7 @@ module.exports = {
         w0: 0,
       },
       transitionDuration: {
-        DEFAULT: '300ms',
+        DEFAULT: '250ms',
       },
 
       transitionTimingFunction: {

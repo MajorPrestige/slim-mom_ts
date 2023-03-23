@@ -1,112 +1,57 @@
 @use '../../styles/mixins';
 
 .form {
-  padding-bottom: 20px;
-  @include mixins.mq(desktop) {
-    width: 608px;
-  }
+  @apply desktop:w-[608px] pb-5;
 }
+
 .formParts {
-  margin-bottom: 40px;
-  display: flex;
-  flex-direction: column;
-  @include mixins.mq(tablet) {
-    justify-content: left;
-    flex-direction: row;
-    margin-bottom: 20px;
-  }
-  @include mixins.mq(desktop) {
-    justify-content: space-between;
-  }
+  @apply mb-10 flex flex-col tablet:justify-start tablet:flex-row tablet:mb-5 desktop:justify-between;
 }
+
 .formPart {
-  display: flex;
-  flex-direction: column;
-  width: 240px;
-  @include mixins.mq(tablet) {
-    margin-right: 32px;
-  }
+  @apply flex flex-col w-60 tablet:mr-8;
 }
+
 .label {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  @apply flex items-center justify-center;
 }
+
 .title {
-  margin-bottom: 32px;
-  font-weight: 700;
-  font-size: 18px;
-  line-height: 1.444;
-  color: var(--text-color);
-  @include mixins.mq(tablet) {
-    margin-bottom: 68px;
-    width: 640px;
-    height: 85px;
-    font-size: 34px;
-    line-height: 1.205;
-  }
-  @include mixins.mq(desktop) {
-    width: 608px;
-    height: 85.5px;
-  }
+  @apply mb-8 font-bold text-18 leading-[1.44] text-text-color tablet:mb-[68px] tablet:w-[640px] tablet:h-[85px] tablet:text-[34px] desktop:w-[608px] desktop:h-[85.5px] tablet:leading-1.2 ;
 }
+
 .checkbox {
-  display: none;
+  @apply hidden;
 }
+
 .fake {
-  display: inline-block;
-  width: 20px;
-  height: 20px;
-  border: 1px solid var(--border-color);
-  position: relative;
-  border-radius: 50%;
+  @apply inline-block w-5 h-5 border-[1px] border-solid border-border-color rounded-[50%] relative;
 }
+
 .fake::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  display: block;
-  width: 10px;
-  height: 10px;
-  background-color: var(--accent-color);
-  opacity: 0;
-  transition: 0.2s;
-  border-radius: 50%;
+  @apply content-[''] absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%] block w-2.5 h-2.5 bg-accent-color opacity-0 rounded-[50%] transition;
 }
+
 .text {
-  padding-left: 7px;
-  color: var(--second-text-color);
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 1.649;
-  letter-spacing: 0.04em;
+  @apply pl-[7px] text-second-text-color font-bold text-14 leading-[1.65] tracking-def;
 }
+
 .checkbox:checked + .fake::before {
   opacity: 1;
 }
+
 .checkbox:checked ~ .text {
   color: var(--accent-color);
 }
+
 .radioBlock {
-  margin-top: -30px;
-  display: flex;
-  flex-direction: row;
+  @apply mt-[-30px] flex flex-row;
 }
+
 .listRadio {
-  margin-right: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  @apply mr-7.5 flex items-center justify-center;
 }
+
 .buttonPosition {
-  display: flex;
-  justify-content: center;
-  @include mixins.mq(tablet) {
-    justify-content: left;
-  }
-  @include mixins.mq(desktop) {
-    margin-left: 323px;
-  }
+  @apply flex justify-center desktop:ml-[323px] tablet:justify-start;
 }
