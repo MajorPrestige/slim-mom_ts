@@ -55,9 +55,7 @@
 }
 
 .wrapper {
-  @include mixins.mq(desktop) {
-    @apply flex justify-between max-w-[1280px] mx-auto;
-  }
+    @apply desktop:flex desktop:justify-between desktop:max-w-[1280px] desktop:mx-auto;
 }
 
 /* width */
