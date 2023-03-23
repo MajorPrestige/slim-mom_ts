@@ -1,83 +1,20 @@
-@use '../../styles/mixins';
-
 .wrapper {
-  padding: 40px 20px;
-  padding-top: 200px;
-  text-align: center;
-  margin: 0 auto;
-
-  @include mixins.mq(mobile) {
-    width: 280px;
-  }
-
-  @include mixins.mq(tablet) {
-    padding: 40px 32px;
-    width: 509px;
-    padding-top: 152px;
-  }
+  @apply py-10 px-5 pt-[200px] text-center mx-auto mobile:w-[280px] tablet:pt-[152px] tablet:w-[509px] tablet:px-8; 
 }
 
 .title {
-  font-weight: 700;
-  font-size: 18px;
-  line-height: 1.22;
-
-  text-align: left;
-
-  @include mixins.mq(tablet) {
-    text-align: center;
-  }
-
-  @include mixins.mq(desktop) {
-    font-weight: 700;
-    font-size: 34px;
-    line-height: 1.2;
-
-    text-align: center;
-  }
+  @apply font-bold text-[18px] leading-[1.22] text-left  desktop:text-[34px] tablet:text-center;
 }
 
+
 .text {
-  margin-top: 20px;
-
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 1.2;
-  letter-spacing: 0.04em;
-
-  text-align: left;
-
-  @include mixins.mq(tablet) {
-    margin-top: 40px;
-    line-height: 1.4;
-  }
-
-  @include mixins.mq(desktop) {
-    margin-top: 60px;
-
-    font-size: 16px;
-    line-height: 1.6;
-  }
+  @apply mt-5 font-normal text-14 leading-1.2 tracking-def text-left tablet:mt-10 tablet:leading-1.4 desktop:mt-[60px] desktop:text-16 desktop:leading-1.6;
 }
 
 .btn {
-  margin-top: 50px;
-
-  @include mixins.mq(tablet) {
-    margin-top: 100px;
-  }
-
-  @include mixins.mq(desktop) {
-    margin-top: 75px;
-  }
+  @apply mt-12 tablet:mt-24 desktop:mt-20;
 }
 
 .btnGreeting {
-  background-color: var(--accent-color);
-  padding: 13px 25px;
-  box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
-  border-radius: 30px;
-  border: 2px solid var(--accent-color);
-  color: var(--main-color);
-  min-width: 182px;
+  @apply min-w-[182px] bg-accent-color py-3 px-6 shadow-btn-shadow rounded-3xl border-2 border-solid border-accent-color text-main-color;
 }

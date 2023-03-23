@@ -2,6 +2,33 @@
 module.exports = {
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
   theme: {
+    fontSize: {
+      14: '14px',
+      16: '16px',
+      xs: '0.75rem',
+      sm: '0.8rem',
+      base: '1rem',
+      xl: '1.25rem',
+      '2xl': '1.563rem',
+      '3xl': '1.953rem',
+      '4xl': '2.441rem',
+      '5xl': '3.052rem',
+    },
+    lineHeight: {
+      1.2: '1.2',
+      1.4: '1.4',
+      1.6: '1.6',
+    },
+    letterSpacing: {
+      def: '0.04em',
+      tightest: '-.075em',
+      tighter: '-.05em',
+      tight: '-.025em',
+      normal: '0',
+      wide: '.025em',
+      wider: '.05em',
+      widest: '.1em',
+    },
     screens: {
       'mobile-only': { max: '479.98px' },
       mobile: '480px',
