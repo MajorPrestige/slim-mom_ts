@@ -1,10 +1,10 @@
 {
   "files": {
     "main.css": "/slim-mom_ts/static/css/main.4c9c9a07.css",
-    "main.js": "/slim-mom_ts/static/js/main.5ea843ec.js",
+    "main.js": "/slim-mom_ts/static/js/main.13970986.js",
     "static/css/679.598d8819.chunk.css": "/slim-mom_ts/static/css/679.598d8819.chunk.css",
     "static/js/679.a9f9bbdb.chunk.js": "/slim-mom_ts/static/js/679.a9f9bbdb.chunk.js",
-    "static/css/471.f52acace.chunk.css": "/slim-mom_ts/static/css/471.f52acace.chunk.css",
+    "static/css/471.2891da4b.chunk.css": "/slim-mom_ts/static/css/471.2891da4b.chunk.css",
     "static/js/471.6fb048de.chunk.js": "/slim-mom_ts/static/js/471.6fb048de.chunk.js",
     "static/css/820.7c3b6ee5.chunk.css": "/slim-mom_ts/static/css/820.7c3b6ee5.chunk.css",
     "static/js/820.0c62d79b.chunk.js": "/slim-mom_ts/static/js/820.0c62d79b.chunk.js",
@@ -84,10 +84,10 @@
     "static/media/back.svg": "/slim-mom_ts/static/media/back.24ce6b342eecfc3ce7e0.svg",
     "static/media/removeBtn.svg": "/slim-mom_ts/static/media/removeBtn.d66f88109a467da5b2e3c6f098eba38d.svg",
     "main.4c9c9a07.css.map": "/slim-mom_ts/static/css/main.4c9c9a07.css.map",
-    "main.5ea843ec.js.map": "/slim-mom_ts/static/js/main.5ea843ec.js.map",
+    "main.13970986.js.map": "/slim-mom_ts/static/js/main.13970986.js.map",
     "679.598d8819.chunk.css.map": "/slim-mom_ts/static/css/679.598d8819.chunk.css.map",
     "679.a9f9bbdb.chunk.js.map": "/slim-mom_ts/static/js/679.a9f9bbdb.chunk.js.map",
-    "471.f52acace.chunk.css.map": "/slim-mom_ts/static/css/471.f52acace.chunk.css.map",
+    "471.2891da4b.chunk.css.map": "/slim-mom_ts/static/css/471.2891da4b.chunk.css.map",
     "471.6fb048de.chunk.js.map": "/slim-mom_ts/static/js/471.6fb048de.chunk.js.map",
     "820.7c3b6ee5.chunk.css.map": "/slim-mom_ts/static/css/820.7c3b6ee5.chunk.css.map",
     "820.0c62d79b.chunk.js.map": "/slim-mom_ts/static/js/820.0c62d79b.chunk.js.map",
@@ -103,6 +103,6 @@
   },
   "entrypoints": [
     "static/css/main.4c9c9a07.css",
-    "static/js/main.5ea843ec.js"
+    "static/js/main.13970986.js"
   ]
 }
