@@ -11,7 +11,7 @@
     @apply items-end justify-start border-none pt-20;
 
     & .wrap {
-      @apply relative ml-[42px] pb-[3px];
+      @apply ml-[42px] pb-[3px] relative;
 
       &:before {
         @apply content-[""] absolute top-[-7px] left-[-20px] block h-8 w-0.5 bg-border-color;
