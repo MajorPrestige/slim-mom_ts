@@ -58,8 +58,20 @@ module.exports = {
       red: "#f84147",
     },
     extend: {
-      margin: {
+      gap:{
+        7.5: '30px',
         15: '60px',
+        12.5: '50px'
+      },
+      padding:{
+        7.5: '30px',
+        15: '60px',
+        12.5: '50px'
+      },
+      margin: {
+        7.5: '30px',
+        15: '60px',
+        12.5: '50px'
       },
       fontFamily: {
         verdana: ['Verdana', 'Geneva', 'sans-serif'],

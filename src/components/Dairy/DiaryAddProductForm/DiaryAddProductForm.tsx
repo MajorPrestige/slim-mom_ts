@@ -75,7 +75,7 @@ const DiaryAddProductForm: FC<DiaryAddProductFormProps> = ({ setModalOpen }) => 
   return (
     <>
       <form className={s.form} onSubmit={handleSubmit(onSubmit)}>
-        <div className={s.overlayLabel}>
+        <div className='relative'>
           <Controller
             control={control}
             name="query"
@@ -103,7 +103,7 @@ const DiaryAddProductForm: FC<DiaryAddProductFormProps> = ({ setModalOpen }) => 
           />
         </div>
 
-        <div className="relative">
+        <div className='relative'>
           <Controller
             control={control}
             name="weight"

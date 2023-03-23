@@ -1,139 +1,33 @@
-@use '../../../styles/mixins';
-
 .overlay {
-  position: absolute;
-  margin-top: 50px;
-
-  @include mixins.mq(tablet) {
-    margin-top: 0px;
-  }
+  @apply absolute mt-12.5 tablet:mt-0;
 }
 
 .headTitle {
-  font-size: 18px;
-  padding-left: 20px;
-  text-align: center;
-
-  @include mixins.mq(tablet) {
-    margin-bottom: 12px;
-    padding-left: 0px;
-    text-align: start;
-  }
-
-  @include mixins.mq(desktop) {
-    margin-bottom: 22px;
-    padding-left: 0px;
-    text-align: start;
-  }
+  @apply text-18 pl-5 text-center tablet:mb-3 desktop:mb-[22px] tablet:pl-0 tablet:text-start;
 }
 
 .list {
-  margin-top: 30px;
-  padding: 0px 20px 30px 20px;
-
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 1.2;
-  letter-spacing: 0.04em;
-
-  background-color: var(--main-color);
-
-  height: 100vh;
   width: calc(100vw - 10px);
 
-  z-index: 2;
-
-  @include mixins.mq(tablet) {
-    width: 610px;
-    margin-top: 0px;
-    padding: 0px;
-
-    gap: 15px;
-    height: 245px;
-
-    overflow-y: scroll;
-  }
-
-  @include mixins.mq(desktop) {
-    height: 270px;
-  }
+  @apply mt-7.5 pt-0 px-5 pb-7.5 flex flex-col gap-5 font-normal text-14 leading-1.2 tracking-def bg-main-color h-screen z-[2] tablet:w-[610px] tablet:mt-0 tablet:p-0 tablet:gap-[15px] tablet:h-[245px] desktop:h-[270px] tablet:overflow-y-scroll;
 }
 
 .item {
-  display: flex;
-  cursor: pointer;
-}
-
-.item:hover {
-  background-color: var(--border-color);
+  @apply flex cursor-pointer hover:bg-border-color;
 }
 
 .wrapper {
-  display: flex;
-  gap: 10px;
-
-  @include mixins.mq(tablet) {
-    gap: 45px;
-  }
-
-  @include mixins.mq(desktop) {
-    gap: 30px;
-  }
+  @apply flex gap-[10px] tablet:gap-[45px] desktop:gap-7.5;
 }
 
 .title {
-  width: 100%;
-  padding-bottom: 8px;
-
-  border-bottom: 1px solid var(--border-color);
-
-  overflow: hidden;
-
-  @include mixins.mq(tablet) {
-    width: 240px;
-    padding-bottom: 20px;
-  }
+  @apply w-full pb-2 border-b-[1px] border-solid border-b-border-color overflow-hidden tablet:w-60 tablet:pb-5;
 }
 
 .weight {
-  display: flex;
-  align-items: center;
-
-  width: 51px;
-  margin-left: 8px;
-  padding-bottom: 8px;
-
-  border-bottom: 1px solid var(--border-color);
-
-  @include mixins.mq(tablet) {
-    width: 105px;
-    margin-left: 20px;
-    padding-bottom: 20px;
-
-    justify-content: right;
-  }
-
-  @include mixins.mq(desktop) {
-    margin-left: 48px;
-  }
+  @apply flex items-center w-[51px] ml-2 pb-2 border-b-[1px] border-solid border-b-border-color tablet:w-[105px] tablet:ml-5 tablet:pb-5 tablet:justify-end desktop:ml-12;
 }
 
 .kcal {
-  display: flex;
-  align-items: center;
-
-  width: 70px;
-  padding-bottom: 8px;
-
-  border-bottom: 1px solid var(--border-color);
-
-  @include mixins.mq(tablet) {
-    width: 105px;
-    padding-bottom: 20px;
-    justify-content: right;
-  }
+  @apply flex items-center w-[70px] pb-2 border-b-[1px] border-solid border-border-color tablet:w-[105px] tablet:pb-5 tablet:justify-end;
 }
