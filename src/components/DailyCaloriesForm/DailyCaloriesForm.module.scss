@@ -11,7 +11,7 @@
 }
 
 .label {
-  @apply flex items-center justify-center cursor-pointer;
+  @apply flex items-center justify-center cursor-pointer ;
 }
 
 .title {
@@ -19,7 +19,7 @@
 }
 
 .checkbox {
-  @apply hidden;
+  @apply sr-only;
 }
 
 .fake {
