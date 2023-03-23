@@ -1,58 +1,21 @@
 @use '../../../styles/mixins';
 
 .form {
-  display: flex;
-  flex-direction: column;
-  margin-top: 40px;
-  padding: 0px 20px;
-
-  @include mixins.mq(tablet) {
-    margin-top: 60px;
-    flex-direction: row;
-    gap: 22px;
-    padding: 0px;
-  }
+  @apply flex flex-col mt-10 py-0 px-5 tablet:mt-15 tablet:flex-row tablet:gap-[22px] tablet:p-0;
 }
 
 .btn {
-  text-align: center;
-  margin-top: 28px;
-
-  @include mixins.mq(tablet) {
-    margin-top: 0px;
-    margin-left: 65px;
-  }
-
-  @include mixins.mq(desktop) {
-    margin-left: 38px;
-  }
+  @apply text-center tablet:mt-0 tablet:ml-[65px] desktop:ml-[38px] mt-7;
 }
 
 .form input[name='weight'] {
-  @include mixins.mq(tablet) {
-    width: 105px;
-
-    text-align: right;
-  }
-}
-
-.overlayLabel {
-  position: relative;
+  @apply tablet:w-[105px] text-right;
 }
 
 .errorOverlay {
-  position: absolute;
-  bottom: 10px;
-  display: flex;
-  align-items: center;
+  @apply absolute bottom-[10px] flex items-center;
 }
 
 .errorMessage {
-  margin-left: 10px;
-
-  color: #f84147;
-
-  @include mixins.mq(tablet) {
-    width: 200px;
-  }
+  @apply ml-[10px] tablet:w-[200px] text-red ;
 }

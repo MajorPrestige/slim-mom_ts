@@ -55,6 +55,7 @@ module.exports = {
       overlay: 'rgba(33, 33, 33, 0.12)',
       modal: '#eff1f3',
       blue: '#264061',
+      red: "#f84147",
     },
     extend: {
       margin: {

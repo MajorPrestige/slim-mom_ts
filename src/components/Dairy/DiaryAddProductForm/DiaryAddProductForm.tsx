@@ -103,7 +103,7 @@ const DiaryAddProductForm: FC<DiaryAddProductFormProps> = ({ setModalOpen }) => 
           />
         </div>
 
-        <div className={s.overlayLabel}>
+        <div className="relative">
           <Controller
             control={control}
             name="weight"
