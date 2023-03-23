@@ -1,12 +1,12 @@
 {
   "files": {
-    "main.css": "/slim-mom_ts/static/css/main.4c9c9a07.css",
-    "main.js": "/slim-mom_ts/static/js/main.13970986.js",
-    "static/css/679.598d8819.chunk.css": "/slim-mom_ts/static/css/679.598d8819.chunk.css",
-    "static/js/679.a9f9bbdb.chunk.js": "/slim-mom_ts/static/js/679.a9f9bbdb.chunk.js",
+    "main.css": "/slim-mom_ts/static/css/main.633de911.css",
+    "main.js": "/slim-mom_ts/static/js/main.0b41a0f9.js",
+    "static/css/679.1675ce5a.chunk.css": "/slim-mom_ts/static/css/679.1675ce5a.chunk.css",
+    "static/js/679.b26bf812.chunk.js": "/slim-mom_ts/static/js/679.b26bf812.chunk.js",
     "static/css/471.2891da4b.chunk.css": "/slim-mom_ts/static/css/471.2891da4b.chunk.css",
     "static/js/471.6fb048de.chunk.js": "/slim-mom_ts/static/js/471.6fb048de.chunk.js",
-    "static/css/820.7c3b6ee5.chunk.css": "/slim-mom_ts/static/css/820.7c3b6ee5.chunk.css",
+    "static/css/820.4b4edbd1.chunk.css": "/slim-mom_ts/static/css/820.4b4edbd1.chunk.css",
     "static/js/820.0c62d79b.chunk.js": "/slim-mom_ts/static/js/820.0c62d79b.chunk.js",
     "static/css/355.03416a38.chunk.css": "/slim-mom_ts/static/css/355.03416a38.chunk.css",
     "static/js/355.f06fbead.chunk.js": "/slim-mom_ts/static/js/355.f06fbead.chunk.js",
@@ -83,13 +83,13 @@
     "static/media/arrow.svg": "/slim-mom_ts/static/media/arrow.24ce6b342eecfc3ce7e0b459a70fddbb.svg",
     "static/media/back.svg": "/slim-mom_ts/static/media/back.24ce6b342eecfc3ce7e0.svg",
     "static/media/removeBtn.svg": "/slim-mom_ts/static/media/removeBtn.d66f88109a467da5b2e3c6f098eba38d.svg",
-    "main.4c9c9a07.css.map": "/slim-mom_ts/static/css/main.4c9c9a07.css.map",
-    "main.13970986.js.map": "/slim-mom_ts/static/js/main.13970986.js.map",
-    "679.598d8819.chunk.css.map": "/slim-mom_ts/static/css/679.598d8819.chunk.css.map",
-    "679.a9f9bbdb.chunk.js.map": "/slim-mom_ts/static/js/679.a9f9bbdb.chunk.js.map",
+    "main.633de911.css.map": "/slim-mom_ts/static/css/main.633de911.css.map",
+    "main.0b41a0f9.js.map": "/slim-mom_ts/static/js/main.0b41a0f9.js.map",
+    "679.1675ce5a.chunk.css.map": "/slim-mom_ts/static/css/679.1675ce5a.chunk.css.map",
+    "679.b26bf812.chunk.js.map": "/slim-mom_ts/static/js/679.b26bf812.chunk.js.map",
     "471.2891da4b.chunk.css.map": "/slim-mom_ts/static/css/471.2891da4b.chunk.css.map",
     "471.6fb048de.chunk.js.map": "/slim-mom_ts/static/js/471.6fb048de.chunk.js.map",
-    "820.7c3b6ee5.chunk.css.map": "/slim-mom_ts/static/css/820.7c3b6ee5.chunk.css.map",
+    "820.4b4edbd1.chunk.css.map": "/slim-mom_ts/static/css/820.4b4edbd1.chunk.css.map",
     "820.0c62d79b.chunk.js.map": "/slim-mom_ts/static/js/820.0c62d79b.chunk.js.map",
     "355.03416a38.chunk.css.map": "/slim-mom_ts/static/css/355.03416a38.chunk.css.map",
     "355.f06fbead.chunk.js.map": "/slim-mom_ts/static/js/355.f06fbead.chunk.js.map",
@@ -102,7 +102,7 @@
     "403.6e612427.chunk.js.map": "/slim-mom_ts/static/js/403.6e612427.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.4c9c9a07.css",
-    "static/js/main.13970986.js"
+    "static/css/main.633de911.css",
+    "static/js/main.0b41a0f9.js"
   ]
 }
