@@ -1,87 +1,23 @@
-@use '../../../styles/mixins';
-
 .item {
-  display: flex;
-
-  cursor: pointer;
+  @apply flex cursor-pointer;
 }
 
 .wrapper {
-  display: flex;
-  gap: 8px;
-
-  margin-left: 8px;
-
-  @include mixins.mq(tablet) {
-    gap: 45px;
-    margin-left: 20px;
-  }
-
-  @include mixins.mq(desktop) {
-    gap: 30px;
-    margin-left: 50px;
-  }
+  @apply flex gap-2 ml-2 tablet:gap-[45px] tablet:ml-5 desktop:gap-7.5 desktop:ml-12.5;
 }
 
 .title {
-  display: flex;
-  align-items: center;
-  width: 100%;
-  padding-bottom: 8px;
-
-  border-bottom: 1px solid var(--border-color);
-
-  overflow: hidden;
-
-  @include mixins.mq(tablet) {
-    width: 240px;
-    padding-bottom: 20px;
-  }
+  @apply flex items-center w-full pb-2 border-b-[1px] border-solid border-b-border-color overflow-hidden tablet:w-60 tablet:pb-5;
 }
 
 .weight {
-  display: flex;
-  align-items: center;
-
-  width: 51px;
-  padding-bottom: 8px;
-
-  border-bottom: 1px solid var(--border-color);
-
-  @include mixins.mq(tablet) {
-    width: 105px;
-    padding-bottom: 20px;
-
-    justify-content: right;
-  }
+  @apply flex items-center w-[51px] pb-2 border-b-[1px] border-solid border-b-border-color tablet:w-[105px] tablet:pb-5 tablet:justify-end;
 }
 
 .kcal {
-  display: flex;
-  align-items: center;
-
-  width: 70px;
-  padding-bottom: 8px;
-
-  border-bottom: 1px solid var(--border-color);
-
-  @include mixins.mq(tablet) {
-    width: 105px;
-    padding-bottom: 20px;
-
-    justify-content: right;
-  }
+  @apply flex items-center w-[70px] pb-2 border-b-[1px] border-solid border-border-color tablet:w-[105px] tablet:pb-5 tablet:justify-end;
 }
 
 .btnRemove {
-  margin-left: 10px;
-
-  border: none;
-  outline: none;
-  background: none;
-
-  @include mixins.mq(tablet) {
-    margin-left: 30px;
-    margin-right: 40px;
-  }
+  @apply ml-2.5 border-none outline-w0 bg-none tablet:ml-7.5 tablet:mr-10;
 }

@@ -1,27 +1,3 @@
-@use '../../../styles/mixins';
-
 .list {
-  margin-top: 30px;
-
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 1.2;
-  letter-spacing: 0.04em;
-
-  @include mixins.mq(tablet) {
-    width: 610px;
-    gap: 15px;
-    height: 245px;
-
-    overflow-y: scroll;
-  }
-
-  @include mixins.mq(desktop) {
-    height: 270px;
-    margin-top: 40px;
-  }
+  @apply mt-7.5 flex flex-col gap-5 font-normal text-14 leading-1.2 tracking-def tablet:w-[610px] tablet:gap-[15px] tablet:h-[245px] tablet:overflow-y-scroll desktop:h-[270px] desktop:mt-10;
 }
