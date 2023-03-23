@@ -1,83 +1,27 @@
-@use '../../styles/mixins';
-
 .modalTitle {
-  margin-top: 40px;
-  margin-bottom: 20px;
-  text-align: left;
-  width: 280px;
-  font-weight: 700;
-  font-size: 18px;
-  line-height: 1.444;
-  color: var(--text-color);
-  @include mixins.mq(tablet) {
-    margin-top: 64px;
-    text-align: center;
-    width: 450px;
-    font-size: 26px;
-    line-height: 1.23;
-  }
+  @apply mt-10 mb-5 text-left w-60 font-bold text-18 leading-[1.44] text-text-color tablet:mt-16 tablet:text-center tablet:w-[450px] tablet:text-[26px] tablet:leading-1.2;
 }
+
 .modalText {
-  margin-bottom: 20px;
-  width: 280px;
-  height: 62px;
-  font-weight: 700;
-  font-size: 48px;
-  line-height: 1.208;
-  letter-spacing: 0.04em;
-  color: #264061;
-  text-align: center;
-  @include mixins.mq(tablet) {
-    width: 330px;
-  }
+  @apply mb-5 w-60 h-[62px] font-bold text-[48px] leading-1.2 tracking-def text-blue tablet:w-[330px] text-center;
 }
+
 .textDescription {
-  font-size: 18px;
+  @apply text-18;
 }
+
 .menuGroup {
-  margin-bottom: 5px;
-  display: flex;
-  flex-direction: column;
-  width: 270px;
-  border-top: 1px solid var(--border-color);
-  @include mixins.mq(tablet) {
-    margin-bottom: 20px;
-    width: 340px;
-  }
-  @include mixins.mq(desktop) {
-    width: 350px;
-  }
+  @apply mb-[5px] flex flex-col w-[270px] border-t-[1px] border-solid border-t-border-color  tablet:w-[340px] desktop:w-[350px] tablet:mb-5;
 }
+
 .menuGroupTitle {
-  margin-top: 20px;
-  margin-bottom: 20px;
-  margin-right: 20px;
-  width: 280px;
-  height: 17px;
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 1.214;
-  letter-spacing: 0.04em;
-  @include mixins.mq(tablet) {
-    margin-top: 12px;
-    width: 330px;
-  }
+  @apply mb-5 mt-5 mr-5 w-[280px] h-[17px] font-bold text-14 leading-1.2 tracking-def tablet:w-[330px] tablet:mt-3;
 }
+
 .menuGroupList {
-  margin-top: 12px;
-  width: 270px;
-  @include mixins.mq(tablet) {
-    width: 340px;
-  }
-  @include mixins.mq(desktop) {
-    width: 350px;
-  }
+  @apply w-[270px] tablet:w-[340px] desktop:w-[350px] mt-3;
 }
+
 .menuGroupItems {
-  margin-bottom: 20px;
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 1.214;
-  letter-spacing: 0.04em;
-  color: var(--second-text-color);
+  @apply mb-5 font-normal text-xs leading-1.2 tracking-def text-second-text-color;
 }
