@@ -4,7 +4,7 @@
   @apply mx-auto flex w-full max-w-[1280px] items-center justify-between border-b-2 border-solid border-b-border-color p-5;
 
   @include mixins.mq(not-desktop) {
-    @apply fixed top-0 left-0 z-20 bg-main-color;
+    @apply fixed top-0 left-0 z-20 bg-transparent;
   }
 
   @media screen and (min-width: 1280px) {
