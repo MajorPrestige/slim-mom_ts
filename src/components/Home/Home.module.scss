@@ -21,15 +21,6 @@
   }
 }
 
-.imgDesktop {
-  display: none;
-
-  @include mixins.mq(desktop) {
-    display: block;
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 1280px;
-    z-index: -1;
-  }
+.imgDesktop {  
+  @apply not-desktop:hidden fixed bottom-0 right-0 z-[-1] w-[1280px] block;
 }
