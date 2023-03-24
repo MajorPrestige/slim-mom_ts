@@ -43,8 +43,8 @@ const UserInfo: FC = () => {
   }
   return (
     <div className={s.userInfoSide}>
-      <p>{userName}</p>
-      <p onClick={onLogout}>Вихід</p>
+      <p >{userName}</p>
+      <p className={s.userBackBtn} onClick={onLogout}>Вихід</p>
     </div>
   );
 };

@@ -21,10 +21,10 @@ const Burger: FC = () => {
         </span>
         <nav className="burger-menu_nav">
           <NavLink className="burger-menu_link" to="/dairy">
-            dairy
+            щоденник
           </NavLink>
           <NavLink className="burger-menu_link" to="/calculator-calories">
-            calculator
+            калькулятор
           </NavLink>
         </nav>
       </div>

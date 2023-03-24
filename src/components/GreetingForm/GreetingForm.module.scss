@@ -1,5 +1,5 @@
 .wrapper {
-  @apply py-10 px-5 pt-[150px] text-center mx-auto tablet-before:max-w-[460px] tablet:w-[509px] tablet:px-8; 
+  @apply py-10 px-5 pt-[165px] tablet:pt-[160px] text-center mx-auto tablet-before:max-w-[460px] tablet:w-[509px] tablet:px-8 tablet:pb-20; 
 }
 
 .title {
@@ -8,7 +8,7 @@
 
 
 .text {
-  @apply mt-5 font-normal text-center text-14 leading-1.2 tracking-def tablet:mt-10 tablet:leading-1.4 desktop:mt-[60px] desktop:text-16 desktop:leading-1.6;
+  @apply mt-5 font-normal text-center text-14 leading-1.2 tracking-def tablet:mt-7 tablet:leading-1.4 desktop:mt-[60px] desktop:text-16 desktop:leading-1.6;
 }
 
 .btn {
