@@ -137,9 +137,9 @@ const DailyCaloriesForm: FC = () => {
             <Controller
               control={control}
               name="bloodType"
-              render={({ field: { onChange, value } }) => (
+              render={({ field: { onChange } }) => (
                 <TextFieldDefault
-                  value={value}
+                  value="Група крові*"
                   control={control}
                   handleChange={onChange}
                   {...field.bloodType}
