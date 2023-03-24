@@ -1,6 +1,7 @@
 import { useEffect, useState, FC } from 'react';
 import { useForm, Controller, SubmitHandler } from 'react-hook-form';
 import { useMediaQuery } from 'react-responsive';
+import { Link } from 'react-router-dom';
 import useAppSelector from 'hooks/useAppSelecor';
 import useAppDispatch from 'hooks/useAppDispatch';
 
@@ -42,8 +43,7 @@ const Login: FC = () => {
     // eslint-disable-next-line
   }, []);
 
-  const onSubmit: SubmitHandler<UserLoginData> = (data, e) => {
-    // e.preventDefault();
+  const onSubmit: SubmitHandler<UserLoginData> = (data) => {
     dispatch(login(data));
     setModalOpen(true);
     reset();
@@ -85,6 +85,8 @@ const Login: FC = () => {
           />
           <div className={s.wrap}>
             <Button text="Ввійти" btnClass="btn" />
+            <Link to="/registration" className='inline-block text-center min-w-[182px] rounded-[30px] border-2 border-solid border-accent-color py-[13px] px-[25px] shadow-btn-shadow bg-main-color text-accent-color'>Реєстрація</Link>
+
           </div>
         </form>
         {!isRetina && (

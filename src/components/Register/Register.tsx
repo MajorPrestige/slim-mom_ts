@@ -3,6 +3,7 @@ import { useForm, Controller, SubmitHandler } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { register } from 'redux/auth/auth-opetations';
 import { useMediaQuery } from 'react-responsive';
+import { Link } from 'react-router-dom';
 import useAppDispatch from 'hooks/useAppDispatch';
 import useAppSelector from 'hooks/useAppSelecor';
 
@@ -107,7 +108,8 @@ const Register: FC = () => {
             )}
           />
           <div className={s.wrap}>
-            <Button text="Реєстрація" btnClass="btnLight" />
+            <Button text="Реєстрація" btnClass="btn" />
+            <Link to="/login" className='inline-block text-center min-w-[182px] rounded-[30px] border-2 border-solid border-accent-color py-[13px] px-[25px] shadow-btn-shadow bg-main-color text-accent-color'>Ввійти</Link>
           </div>
         </form>
         {!isRetina && (
