@@ -1,14 +1,14 @@
 .btn,
 .btnLight {
-  @apply min-w-[182px] rounded-[30px] border-2 border-solid border-accent-color py-[13px] px-[25px] text-main-color shadow-btn-shadow;
+  @apply min-w-[182px] rounded-[30px] border-2 border-solid border-accent-color py-[13px] px-[25px] text-main-color shadow-btn-shadow transition;
 }
 
 .btn {
-  @apply bg-accent-color;
+  @apply bg-accent-color hover:bg-main-color hover:text-accent-color;
 }
 
 .btnLight {
-  @apply bg-main-color text-accent-color;
+  @apply bg-main-color text-accent-color hover:bg-accent-color hover:text-main-color;
 }
 
 .btnPlus,
