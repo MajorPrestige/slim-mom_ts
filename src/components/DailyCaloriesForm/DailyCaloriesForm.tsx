@@ -2,6 +2,8 @@ import { useState, FC } from 'react';
 import useAppDispatch from 'hooks/useAppDispatch';
 import useAppSelector from 'hooks/useAppSelecor';
 import { useForm, Controller, SubmitHandler } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from 'yup';
 import s from './DailyCaloriesForm.module.scss';
 
 import { field } from '../Shared/TextField/fields';
@@ -9,6 +11,7 @@ import Button from '../Shared/Button/Button';
 import TextField from '../Shared/TextField/TextField';
 import Modal from '../Modal/Modal';
 import DailyCalorieIntake from 'components/DailyCalorieIntake/DailyCalorieIntake';
+import ValidateError from 'components/ValidateError/ValidateError';
 import ErrorMessage from '../ErrorMessage/ErrorMessage';
 import Container from 'components/Shared/Container';
 import TextFieldDefault from 'components/Shared/TextFieldDefault/TextFieldDefault';
@@ -27,7 +30,43 @@ const DailyCaloriesForm: FC = () => {
   const dailyRateDate = useAppSelector(getDailyRate);
   const errorDaily = useAppSelector(getErrorDaily);
 
-  const { control, handleSubmit, reset, register } = useForm<DailyFormDefaultValue>({
+  const schema = yup.object().shape({
+    height: yup
+      .number()
+      .typeError('Введіть число')
+      .required()
+      .min(100, 'не менше ніж 100')
+      .max(250, 'не більше ніж 250'),
+    age: yup
+      .number()
+      .typeError('Введіть число')
+      .required()
+      .min(18, 'не менше ніж 18')
+      .max(100, 'не більше ніж 100'),
+    weight: yup
+      .number()
+      .typeError('Введіть число')
+      .required()
+      .min(20, 'не менше ніж 20')
+      .max(250, 'не більше ніж 250'),
+    desiredWeight: yup
+      .number()
+      .typeError('Введіть число')
+      .required()
+      .min(20, 'не менше ніж 20')
+      .max(250, 'не більше ніж 250'),
+    bloodType: yup.string().required('Оберіть число').required('Оберіть число'),
+  });
+
+  const {
+    control,
+    handleSubmit,
+    reset,
+    register,
+    formState: { errors },
+  } = useForm<DailyFormDefaultValue>({
+    resolver: yupResolver(schema),
+    mode: 'onChange',
     defaultValues: {
       weight: '',
       height: '',
@@ -69,9 +108,13 @@ const DailyCaloriesForm: FC = () => {
                   control={control}
                   handleChange={onChange}
                   {...field.height}
-                />
+                  {...register('height')}
+                >
+                  {errors.height && <ValidateError error={errors.height.message} />}
+                </TextField>
               )}
             />
+
             <Controller
               control={control}
               name="age"
@@ -81,7 +124,10 @@ const DailyCaloriesForm: FC = () => {
                   control={control}
                   handleChange={onChange}
                   {...field.age}
-                />
+                  {...register('age')}
+                >
+                  {errors.age && <ValidateError error={errors.age.message} />}
+                </TextField>
               )}
             />
             <Controller
@@ -93,7 +139,10 @@ const DailyCaloriesForm: FC = () => {
                   control={control}
                   handleChange={onChange}
                   {...field.weight}
-                />
+                  {...register('weight')}
+                >
+                  {errors.weight && <ValidateError error={errors.weight.message} />}
+                </TextField>
               )}
             />
           </div>
@@ -107,7 +156,12 @@ const DailyCaloriesForm: FC = () => {
                   control={control}
                   handleChange={onChange}
                   {...field.desiredWeight}
-                />
+                  {...register('desiredWeight')}
+                >
+                  {errors.desiredWeight && (
+                    <ValidateError error={errors.desiredWeight.message} />
+                  )}
+                </TextField>
               )}
             />
             <Controller
@@ -119,7 +173,8 @@ const DailyCaloriesForm: FC = () => {
                   control={control}
                   handleChange={onChange}
                   {...field.bloodType}
-                />
+                  {...register('bloodType')}
+                ></TextFieldDefault>
               )}
             />
             <div className={s.radioBlock}>
@@ -142,6 +197,9 @@ const DailyCaloriesForm: FC = () => {
                 </div>
               ))}
             </div>
+            {errors.bloodType && (
+              <p className="mt-2 text-xs text-red">{errors.bloodType.message}</p>
+            )}
           </div>
         </div>
         <div className={s.buttonPosition}>

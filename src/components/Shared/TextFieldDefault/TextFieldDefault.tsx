@@ -11,6 +11,7 @@ interface ITextFieldDefault {
   title?: string;
   disabled: boolean | undefined;
   control?: any;
+  children?: React.ReactNode;
 }
 
 const TextFieldDefault: FC<Partial<ITextFieldDefault>> = ({
@@ -23,11 +24,12 @@ const TextFieldDefault: FC<Partial<ITextFieldDefault>> = ({
   pattern,
   title,
   disabled,
+  children,
 }) => {
   return (
     <label>
       <input
-        className="tracking-[1px]transition-all mb-10 inline-block h-12 w-full rounded-none border-b-[1px] border-solid border-l-transparent  border-r-transparent border-t-transparent border-b-border-color bg-transparent text-[14px] font-normal leading-normal text-second-text-color shadow-none duration-200 placeholder:text-[14px]  placeholder:text-second-text-color focus:border-b-accent-color focus:bg-transparent focus:outline-w0 tablet:w-[240px]"
+        className="tracking-[1px]transition-all leading-normal mb-10 inline-block h-12 w-full rounded-none border-b-[1px] border-solid  border-l-transparent border-r-transparent border-t-transparent border-b-border-color bg-transparent text-[14px] font-normal text-second-text-color shadow-none duration-200 placeholder:text-[14px]  placeholder:text-second-text-color focus:border-b-accent-color focus:bg-transparent focus:outline-w0 tablet:w-[240px]"
         type={type}
         name={name}
         value={value}
@@ -39,6 +41,7 @@ const TextFieldDefault: FC<Partial<ITextFieldDefault>> = ({
         disabled={disabled}
         autoComplete="off"
       />
+      {children}
     </label>
   );
 };
