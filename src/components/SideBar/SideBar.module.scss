@@ -35,17 +35,36 @@
   @apply text-[14px] tracking-[0.04em] text-second-text-color;
 }
 
+// .menuGroupList {
+//   @apply relative h-[305px] w-[280px] overflow-y-auto overflow-x-hidden tablet:h-[305px] desktop:h-[315px] list-none;
+// }
+
+.menuGroupContainer {
+  @apply relative h-[305px] w-[280px] overflow-hidden tablet:h-[305px] desktop:h-[315px] list-none;
+}
+
 .menuGroupList {
-  @apply h-[305px] w-[280px] overflow-y-auto overflow-x-hidden tablet:h-[305px] tablet:w-[240px] desktop:h-[315px] list-none;
+  @apply overflow-y-scroll h-full;
+}
+
+.menuGroupContainer:after{
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  background: linear-gradient(to bottom, rgba(240, 241, 243, 0), rgba(240, 241, 243, 1));
 }
 
 .menuGroupItems {
-  @apply mb-5 w-[255px] font-normal tracking-[0.04em] text-second-text-color tablet:mb-[15px] tablet:w-[235px] desktop:w-[230px] text-xs;
+  @apply mb-5 w-[255px] font-normal tracking-[0.04em] text-second-text-color tablet:mb-[15px] tablet:w-[260px] text-14;
 }
 
 input[name='filter'] {
   @apply border-b-[1px] border-solid bg-transparent font-semibold text-second-text-color;
 }
+
 
 /* width */
 ::-webkit-scrollbar {

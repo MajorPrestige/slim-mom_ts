@@ -115,7 +115,7 @@ const SideBar: FC = () => {
           <TextFieldDefault handleChange={filterRecommendedFood} {...field.filter} />
         )}
         {notAllowedProducts?.length > 0 && (
-          <>
+          <div className={styles.menuGroupContainer}>
             <ol className={styles.menuGroupList}>
               {filteredFood.map((el) => (
                 <li key={nanoid()} className={styles.menuGroupItems}>
@@ -123,7 +123,7 @@ const SideBar: FC = () => {
                 </li>
               ))}
             </ol>
-          </>
+          </div>
         )}
         {notAllowedProducts?.length === 0 && (
           <p className={styles.text_sidebar_food}>
