@@ -11,7 +11,20 @@ const registerSchema = yup.object().shape({
     .string()
     .required("введіть електронну пошту")
     .min(3, 'не менше ніж 3 символи')
-    .matches(emailRegexp, 'не валідний email'),
+    .matches(emailRegexp, 'невалідна адреса'),
+  password: yup
+    .string()
+    .required('введіть пароль')
+    .min(8, 'не менше ніж 8 символів')
+    .max(100, 'не більше ніж 12 символів'),
+});
+
+const loginSchema = yup.object().shape({
+  email: yup
+    .string()
+    .required("введіть електронну пошту")
+    .min(3, 'не менше ніж 3 символи')
+    .matches(emailRegexp, 'невалідна адреса'),
   password: yup
     .string()
     .required('введіть пароль')
@@ -21,6 +34,7 @@ const registerSchema = yup.object().shape({
 
 const schema = {
   registerSchema,
+  loginSchema
 };
 
 export default schema;

@@ -1,5 +1,6 @@
 import { useEffect, useState, FC } from 'react';
 import { useForm, Controller, SubmitHandler } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
 import { useMediaQuery } from 'react-responsive';
 import { Link } from 'react-router-dom';
 import useAppSelector from 'hooks/useAppSelecor';
@@ -11,12 +12,14 @@ import Container from 'components/Shared/Container';
 import TextField from 'components/Shared/TextField';
 import { field } from 'components/Shared/TextField/fields';
 import Button from 'components/Shared/Button';
-import ErrorMessage from '../ErrorMessage/ErrorMessage';
+import ValidateError from 'components/ValidateError/ValidateError';
 import Modal from '../../components/Modal/Modal';
 
 import bcgDesktop from '../../images/desktop/bcgD.png';
 import bcgDesktop2x from '../../images/desktop/bcgD@2x.png';
 
+import schema from 'schemas/auth';
+import ErrorMessage from '../ErrorMessage/ErrorMessage';
 import { getErrorLogin } from 'redux/auth/auth-selectors';
 import { clearNewUser } from 'redux/auth/auth-slice';
 import { login } from 'redux/auth/auth-opetations';
@@ -31,7 +34,9 @@ const Login: FC = () => {
 
   const errorLogin = useAppSelector(getErrorLogin);
 
-  const { control, handleSubmit, reset } = useForm<UserLoginData>({
+  const { control, handleSubmit, reset, formState: {errors} } = useForm<UserLoginData>({
+    resolver: yupResolver(schema.loginSchema),
+    mode: 'onChange',
     defaultValues: {
       email: '',
       password: '',
@@ -54,7 +59,7 @@ const Login: FC = () => {
       <Container>
         <h2 className={s.title}>Вхід</h2>
         <form className={s.form} onSubmit={handleSubmit(onSubmit)}>
-          <Controller
+        <Controller
             control={control}
             name="email"
             rules={{
@@ -65,9 +70,10 @@ const Login: FC = () => {
                 value={value}
                 control={control}
                 handleChange={onChange}
-
                 {...field.email}
-              />
+              >
+                {errors.email && <ValidateError error={errors.email.message} />}
+              </TextField>
             )}
           />
           <Controller
@@ -80,7 +86,11 @@ const Login: FC = () => {
                 control={control}
                 handleChange={onChange}
                 {...field.password}
-              />
+              >
+                {errors.password && (
+                  <ValidateError error={errors.password.message} />
+                )}
+              </TextField>
             )}
           />
           <div className={s.wrap}>
