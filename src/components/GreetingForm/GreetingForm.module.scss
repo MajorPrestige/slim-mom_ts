@@ -3,12 +3,12 @@
 }
 
 .title {
-  @apply font-bold text-[18px] leading-[1.22] text-left  desktop:text-[34px] tablet:text-center;
+  @apply font-bold text-[18px] leading-[1.22] desktop:text-[34px] text-center;
 }
 
 
 .text {
-  @apply mt-5 font-normal text-14 leading-1.2 tracking-def text-left tablet:mt-10 tablet:leading-1.4 desktop:mt-[60px] desktop:text-16 desktop:leading-1.6;
+  @apply mt-5 font-normal text-center text-14 leading-1.2 tracking-def text-left tablet:mt-10 tablet:leading-1.4 desktop:mt-[60px] desktop:text-16 desktop:leading-1.6;
 }
 
 .btn {
