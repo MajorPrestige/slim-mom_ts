@@ -16,7 +16,7 @@
 
   @include mixins.mq(desktop) {
     padding-top: 147px;
-    height: auto;
+    min-height: calc(100vh - 166px);
     background-image: none;
   }
 }
