@@ -4,7 +4,6 @@ import useAppSelector from 'hooks/useAppSelecor';
 import { useForm, Controller, SubmitHandler } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import schema from 'schemas/daily-form';
-// import * as yup from 'yup';
 import s from './DailyCaloriesForm.module.scss';
 
 import { field } from '../Shared/TextField/fields';

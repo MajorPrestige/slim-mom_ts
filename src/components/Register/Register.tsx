@@ -1,5 +1,6 @@
 import { useState, FC } from 'react';
 import { useForm, Controller, SubmitHandler } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
 import { register } from 'redux/auth/auth-opetations';
 import { useMediaQuery } from 'react-responsive';
 import useAppDispatch from 'hooks/useAppDispatch';
@@ -7,11 +8,13 @@ import useAppSelector from 'hooks/useAppSelecor';
 
 import s from './Register.module.scss';
 
+import schema from 'schemas/auth';
 import { field } from 'components/Shared/TextField/fields';
 import TextField from 'components/Shared/TextField';
 import Button from 'components/Shared/Button';
 import Container from 'components/Shared/Container';
 import ErrorMessage from '../ErrorMessage/ErrorMessage';
+import ValidateError from 'components/ValidateError/ValidateError';
 import Modal from '../Modal/Modal';
 import { UserData } from 'types/auth.type';
 
@@ -28,7 +31,14 @@ const Register: FC = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const errorLogin = useAppSelector(getErrorLogin);
 
-  const { control, handleSubmit, reset } = useForm<UserData>({
+  const {
+    control,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm<UserData>({
+    resolver: yupResolver(schema.registerSchema),
+    mode: 'onChange',
     defaultValues: {
       username: '',
       email: '',
@@ -36,8 +46,7 @@ const Register: FC = () => {
     },
   });
 
-  const onSubmit: SubmitHandler<UserData> = (data, e) => {
-    // e.preventDefault();
+  const onSubmit: SubmitHandler<UserData> = (data) => {
     dispatch(register(data));
     setModalOpen(true);
     reset();
@@ -57,8 +66,10 @@ const Register: FC = () => {
                 value={value}
                 control={control}
                 handleChange={onChange}
-                {...field.name}
-              />
+                {...field.username}
+              >
+                {errors.username && <ValidateError error={errors.username.message} />}
+              </TextField>
             )}
           />
           <Controller
@@ -73,7 +84,9 @@ const Register: FC = () => {
                 control={control}
                 handleChange={onChange}
                 {...field.email}
-              />
+              >
+                {errors.email && <ValidateError error={errors.email.message} />}
+              </TextField>
             )}
           />
           <Controller
@@ -86,7 +99,11 @@ const Register: FC = () => {
                 control={control}
                 handleChange={onChange}
                 {...field.password}
-              />
+              >
+                {errors.password && (
+                  <ValidateError error={errors.password.message} />
+                )}
+              </TextField>
             )}
           />
           <div className={s.wrap}>

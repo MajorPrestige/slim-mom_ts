@@ -50,7 +50,7 @@
 
 .userInfoTablet {
   composes: userInfo;
-  @apply mr-[106px]  w-[260px] bg-main-color;
+  @apply mr-[106px]  w-[300px] bg-main-color;
   justify-content: end;
 }
 

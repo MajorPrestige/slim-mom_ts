@@ -1,6 +1,6 @@
 export const field = {
-  name: {
-    name: 'name',
+  username: {
+    name: 'username',
     type: 'text',
     placeholder: 'Імʼя*',
     title: 'Назва має складатися не менше, ніж з 3 символів',
