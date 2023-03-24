@@ -10,7 +10,7 @@ const GreetingForm: FC = () => {
   const userName = useAppSelector(getUserName);
   return (
     <div className={s.wrapper}>
-      <h1 className={s.title}>Добрий день, {userName}</h1>
+      <h1 className={s.title}>Добрий день, {userName}!</h1>
       <p className={s.text}>
         Наш додаток пропонує вам дотримуватися дієти та розрахувати калорії.
         Перейдіть до розділу калькулятор та розрахуйте дієту.

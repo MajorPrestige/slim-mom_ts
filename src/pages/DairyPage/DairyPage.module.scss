@@ -1,9 +1,10 @@
 .wrapper {
-  @apply flex flex-col h-screen justify-between desktop:flex-row desktop:max-w-[1280px] desktop:mx-auto ;
+  @apply flex flex-col justify-between desktop:mx-auto desktop:max-w-[1280px] desktop:flex-row not-desktop:min-h-screen;
+
 }
 
 .overlay {
-  @apply pt-[152px] pb-15 pl-5 pr-5 flex flex-col  desktop:pt-[140px] desktop:pb-[55px] tablet-only:mx-auto; 
+  @apply flex flex-col pt-[152px] pb-15 pl-5 pr-5  tablet-only:mx-auto desktop:pt-[140px] desktop:pb-[55px];
 }
 
 .btn {
@@ -11,5 +12,5 @@
 }
 
 .btnDairyPage {
-  @apply mt-60 pt-2.5 w-12 h-12 text-[24px] text-center border-none rounded-full bg-accent-color text-main-color shadow-btn-shadow;
+  @apply mt-60 h-12 w-12 rounded-full border-none bg-accent-color pt-2.5 text-center text-[24px] text-main-color shadow-btn-shadow;
 }

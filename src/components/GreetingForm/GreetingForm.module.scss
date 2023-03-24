@@ -1,5 +1,5 @@
 .wrapper {
-  @apply py-10 px-5 pt-[200px] text-center mx-auto mobile:w-[280px] tablet:pt-[152px] tablet:w-[509px] tablet:px-8; 
+  @apply py-10 px-5 pt-[150px] text-center mx-auto tablet-before:max-w-[460px] tablet:w-[509px] tablet:px-8; 
 }
 
 .title {
@@ -8,13 +8,13 @@
 
 
 .text {
-  @apply mt-5 font-normal text-center text-14 leading-1.2 tracking-def text-left tablet:mt-10 tablet:leading-1.4 desktop:mt-[60px] desktop:text-16 desktop:leading-1.6;
+  @apply mt-5 font-normal text-center text-14 leading-1.2 tracking-def tablet:mt-10 tablet:leading-1.4 desktop:mt-[60px] desktop:text-16 desktop:leading-1.6;
 }
 
 .btn {
-  @apply mt-12 tablet:mt-24 desktop:mt-20;
+  @apply mt-12 desktop:mt-20;
 }
 
 .btnGreeting {
-  @apply min-w-[182px] bg-accent-color py-3 px-6 shadow-btn-shadow rounded-3xl border-2 border-solid border-accent-color text-main-color;
+  @apply min-w-[182px] bg-accent-color py-3 px-6 shadow-btn-shadow rounded-3xl border-2 border-solid border-accent-color text-main-color transition hover:bg-main-color hover:text-accent-color;
 }
