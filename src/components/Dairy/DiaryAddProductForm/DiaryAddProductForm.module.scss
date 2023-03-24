@@ -7,7 +7,7 @@
 }
 
 .form input[name='weight'] {
-  @apply tablet:w-[105px] text-right;
+  @apply tablet:w-[105px] text-right tablet-before:text-left;
 }
 
 .errorOverlay {

@@ -13,7 +13,7 @@
 
 .btnPlus,
 .btnDairyPage {
-  @apply h-12 w-12 rounded-full border-none bg-accent-color text-20 text-main-color shadow-btn-shadow;
+  @apply h-12 w-12 rounded-full border-none bg-accent-color text-20 text-main-color shadow-btn-shadow transition ;
 }
 
 .btnDairyPage {

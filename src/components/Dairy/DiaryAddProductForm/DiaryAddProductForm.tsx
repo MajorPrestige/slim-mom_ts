@@ -51,9 +51,7 @@ const DiaryAddProductForm: FC<DiaryAddProductFormProps> = ({ setModalOpen }) => 
 
   const onSubmit: SubmitHandler<IUseFormDefaultValue> = (
     data,
-    // e: any
   ) => {
-    // e.preventDefault();
     dispatch(getProductOperations(data.query));
     dispatch(addWeight(Number(data.weight)));
     if (isOpen === true) {
@@ -113,7 +111,6 @@ const DiaryAddProductForm: FC<DiaryAddProductFormProps> = ({ setModalOpen }) => 
                 placeholder={'Вага (гр)'}
                 name={'weight'}
                 pattern="[0-9]+"
-                // control={control}
                 handleChange={onChange}
               />
             )}
