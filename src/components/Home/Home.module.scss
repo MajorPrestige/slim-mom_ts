@@ -5,7 +5,7 @@
 
   @include mixins.mq(tablet) {
     padding-top: 180px;
-    height: 100vh;
+    min-height: 100vh;
     background-image: image-set(
       url('../../images/tablet/bghometablet.png') 1x,
       url('../../images/tablet/bghometabletx2.png') 2x
