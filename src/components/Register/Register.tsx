@@ -109,7 +109,7 @@ const Register: FC = () => {
           />
           <div className={s.wrap}>
             <Button text="Реєстрація" btnClass="btn" />
-            <Link to="/login" className='inline-block text-center min-w-[182px] rounded-[30px] border-2 border-solid border-accent-color py-[13px] px-[25px] shadow-btn-shadow transition bg-main-color text-accent-color hover:bg-accent-color hover:text-main-color'>Ввійти</Link>
+            <Link to="/login" className='inline-block text-center min-w-[182px] rounded-[30px] border-2 border-solid border-accent-color py-[13px] px-[25px] shadow-btn-shadow transition bg-main-color text-accent-color hover:bg-accent-color hover:text-main-color'>Увійти</Link>
           </div>
         </form>
         {!isRetina && (

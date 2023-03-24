@@ -94,7 +94,7 @@ const Login: FC = () => {
             )}
           />
           <div className={s.wrap}>
-            <Button text="Ввійти" btnClass="btn" />
+            <Button text="Увійти" btnClass="btn" />
             <Link to="/registration" className='inline-block text-center min-w-[182px] rounded-[30px] border-2 border-solid border-accent-color py-[13px] px-[25px] shadow-btn-shadow bg-main-color transition text-accent-color hover:bg-accent-color hover:text-main-color'>Реєстрація</Link>
 
           </div>
