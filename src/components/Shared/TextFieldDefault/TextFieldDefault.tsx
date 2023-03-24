@@ -45,9 +45,5 @@ const TextFieldDefault: FC<Partial<ITextFieldDefault>> = ({
     </label>
   );
 };
-export default TextFieldDefault;
 
-TextFieldDefault.defaultProps = {
-  type: 'text',
-  required: false,
-};
+export default TextFieldDefault;
