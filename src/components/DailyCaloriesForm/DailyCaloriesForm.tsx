@@ -47,13 +47,13 @@ const DailyCaloriesForm: FC = () => {
       .number()
       .typeError('Введіть число')
       .required()
-      .min(20, 'не менше ніж 20')
+      .min(40, 'не менше ніж 40')
       .max(250, 'не більше ніж 250'),
     desiredWeight: yup
       .number()
       .typeError('Введіть число')
       .required()
-      .min(20, 'не менше ніж 20')
+      .min(40, 'не менше ніж 40')
       .max(250, 'не більше ніж 250'),
     bloodType: yup.string().required('Оберіть число').required('Оберіть число'),
   });
@@ -76,7 +76,7 @@ const DailyCaloriesForm: FC = () => {
     },
   });
 
-  const onSubmit: SubmitHandler<DailyFormDefaultValue> = (data, e: any) => {
+  const onSubmit: SubmitHandler<DailyFormDefaultValue> = (data) => {
     const numberData = {
       weight: Number(data.weight),
       height: Number(data.height),
@@ -84,7 +84,6 @@ const DailyCaloriesForm: FC = () => {
       desiredWeight: Number(data.desiredWeight),
       bloodType: Number(data.bloodType),
     };
-    e.preventDefault();
 
     dispatch(dailyRateInfo(numberData));
     setActiveCheckbox(null);
@@ -178,6 +177,9 @@ const DailyCaloriesForm: FC = () => {
               )}
             />
             <div className={s.radioBlock}>
+              {errors.bloodType && (
+                <ValidateError error={errors.bloodType.message} />
+              )}
               {[...Array(4)].map((_, idx) => (
                 <div key={idx} className={s.listRadio}>
                   <label className={s.label}>
@@ -197,9 +199,6 @@ const DailyCaloriesForm: FC = () => {
                 </div>
               ))}
             </div>
-            {errors.bloodType && (
-              <p className="mt-2 text-xs text-red">{errors.bloodType.message}</p>
-            )}
           </div>
         </div>
         <div className={s.buttonPosition}>
