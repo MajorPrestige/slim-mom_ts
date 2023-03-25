@@ -4,7 +4,7 @@
 }
 
 .overlay {
-  @apply flex flex-col pt-[152px] pb-15 pl-5 pr-5  desktop:pt-[140px] desktop:pb-[55px] tablet-only:mx-auto;
+  @apply flex flex-col pt-[152px] pb-15 pl-5 pr-5  desktop:pt-[140px] desktop:pb-[55px] tablet-only:pl-20;
 }
 
 .btn {

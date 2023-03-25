@@ -30,6 +30,7 @@ const DiaryProductsList: FC = () => {
       )}
     </>
   );
+
 };
 
 export default DiaryProductsList;
