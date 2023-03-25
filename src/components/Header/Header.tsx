@@ -22,6 +22,13 @@ const Header: FC = () => {
   const isPathcalculate = pathname === '/calculator-calories';
   const isUserLogin = useAppSelector(getLogin);
 
+  const handleClick = () => {
+    const body = document.querySelector('body') as HTMLBodyElement;
+    if (body.classList.contains('no-scroll')) {
+      body.classList.remove('no-scroll');
+    }
+  };
+
   if (isUserLogin) {
     if (isMobile) {
       return (
@@ -33,7 +40,7 @@ const Header: FC = () => {
           <div className={s.userInfo}>
             <UserInfo />
             {!isPathcalculate && (
-              <Link to="/calculator-calories">
+              <Link onClick={handleClick} to="/calculator-calories">
                 <img src={arrow} alt="arrow" />
               </Link>
             )}
