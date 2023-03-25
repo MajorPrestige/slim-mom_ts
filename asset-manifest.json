@@ -1,10 +1,10 @@
 {
   "files": {
     "main.css": "/slim-mom_ts/static/css/main.eece9402.css",
-    "main.js": "/slim-mom_ts/static/js/main.ed0c7732.js",
+    "main.js": "/slim-mom_ts/static/js/main.8c60390c.js",
     "static/css/679.c4366fc1.chunk.css": "/slim-mom_ts/static/css/679.c4366fc1.chunk.css",
     "static/js/679.207bced2.chunk.js": "/slim-mom_ts/static/js/679.207bced2.chunk.js",
-    "static/css/471.8fa25e45.chunk.css": "/slim-mom_ts/static/css/471.8fa25e45.chunk.css",
+    "static/css/471.55882c01.chunk.css": "/slim-mom_ts/static/css/471.55882c01.chunk.css",
     "static/js/471.15de4050.chunk.js": "/slim-mom_ts/static/js/471.15de4050.chunk.js",
     "static/css/820.dfc8646b.chunk.css": "/slim-mom_ts/static/css/820.dfc8646b.chunk.css",
     "static/js/820.b070bb21.chunk.js": "/slim-mom_ts/static/js/820.b070bb21.chunk.js",
@@ -85,10 +85,10 @@
     "static/media/back.svg": "/slim-mom_ts/static/media/back.24ce6b342eecfc3ce7e0.svg",
     "static/media/removeBtn.svg": "/slim-mom_ts/static/media/removeBtn.d66f88109a467da5b2e3c6f098eba38d.svg",
     "main.eece9402.css.map": "/slim-mom_ts/static/css/main.eece9402.css.map",
-    "main.ed0c7732.js.map": "/slim-mom_ts/static/js/main.ed0c7732.js.map",
+    "main.8c60390c.js.map": "/slim-mom_ts/static/js/main.8c60390c.js.map",
     "679.c4366fc1.chunk.css.map": "/slim-mom_ts/static/css/679.c4366fc1.chunk.css.map",
     "679.207bced2.chunk.js.map": "/slim-mom_ts/static/js/679.207bced2.chunk.js.map",
-    "471.8fa25e45.chunk.css.map": "/slim-mom_ts/static/css/471.8fa25e45.chunk.css.map",
+    "471.55882c01.chunk.css.map": "/slim-mom_ts/static/css/471.55882c01.chunk.css.map",
     "471.15de4050.chunk.js.map": "/slim-mom_ts/static/js/471.15de4050.chunk.js.map",
     "820.dfc8646b.chunk.css.map": "/slim-mom_ts/static/css/820.dfc8646b.chunk.css.map",
     "820.b070bb21.chunk.js.map": "/slim-mom_ts/static/js/820.b070bb21.chunk.js.map",
@@ -105,6 +105,6 @@
   },
   "entrypoints": [
     "static/css/main.eece9402.css",
-    "static/js/main.ed0c7732.js"
+    "static/js/main.8c60390c.js"
   ]
 }
