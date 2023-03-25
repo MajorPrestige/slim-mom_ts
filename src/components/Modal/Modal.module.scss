@@ -1,7 +1,7 @@
 @use '../../styles/mixins';
 
 .overlay {
-  @apply fixed top-0 right-0 z-[999] flex h-screen w-screen items-center justify-center bg-overlay;
+  @apply fixed top-0 right-0 z-[999] flex h-screen w-screen items-center justify-center bg-overlay overflow-y-auto;
 }
 
 .overlayDairyPage {

@@ -6,11 +6,11 @@ interface TextFieldProps {
   value: string | number | readonly string[] | undefined;
   handleChange: React.ChangeEventHandler<HTMLInputElement>;
   placeholder: string;
-  required?: boolean | undefined;
-  pattern?: string;
-  title?: string;
-  control?: any;
-  children?: React.ReactNode;
+  required: boolean | undefined;
+  pattern: string;
+  title: string;
+  control: any;
+  children: React.ReactNode;
 }
 
 const classNameWithValue =
@@ -19,7 +19,7 @@ const classNameWithValue =
 const classNameWithoutValue =
   'pointer-events-none absolute top-[1px] left-[1px] mt-[17px] inline-block text-[14px] text-second-text-color duration-300 peer-focus:translate-x-[-10px] peer-focus:translate-y-[-32px]';
 
-const TextField: FC<TextFieldProps> = ({
+const TextField: FC<Partial<TextFieldProps>> = ({
   type,
   name,
   value,

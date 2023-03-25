@@ -49,13 +49,13 @@ const Modal: FC<IModal> = ({
 
   return (
     <div className={s[overlayClass]} onClick={onOverlayClick}>
-      <div className={s[modalClass]}>
-        <div className={s.mobileClose}>
-          <span onClick={closeModal} className={s.closeM}></span>
+        <div className={s[modalClass]}>
+          <div className={s.mobileClose}>
+            <span onClick={closeModal} className={s.closeM}></span>
+          </div>
+          <span onClick={closeModal} className={s.closeOther}></span>
+          {children}
         </div>
-        <span onClick={closeModal} className={s.closeOther}></span>
-        {children}
-      </div>
     </div>
   );
 };

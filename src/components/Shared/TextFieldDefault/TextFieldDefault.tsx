@@ -7,11 +7,11 @@ interface ITextFieldDefault {
   handleChange: React.ChangeEventHandler<HTMLInputElement>;
   placeholder: string;
   required: boolean | undefined;
-  pattern?: string;
-  title?: string;
+  pattern: string;
+  title: string;
   disabled: boolean | undefined;
-  control?: any;
-  children?: React.ReactNode;
+  control: any;
+  children: React.ReactNode;
 }
 
 const TextFieldDefault: FC<Partial<ITextFieldDefault>> = ({
