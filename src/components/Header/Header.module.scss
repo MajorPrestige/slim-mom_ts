@@ -68,5 +68,5 @@
 }
 
 .headerIsLogin {
-  @apply mx-auto max-w-[1280px] not-desktop:fixed not-desktop:top-0 not-desktop:left-0  not-desktop:z-20 tablet-before:z-[1000] not-desktop:w-full not-desktop:bg-main-color;
+  @apply mx-auto max-w-[1280px] not-desktop:fixed not-desktop:top-0 not-desktop:left-0 tablet-only:z-20  not-desktop:w-full tablet-before:z-[1000] not-desktop:bg-main-color;
 }
