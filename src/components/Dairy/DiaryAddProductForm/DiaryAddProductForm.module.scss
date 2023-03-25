@@ -11,9 +11,9 @@
 }
 
 .errorOverlay {
-  @apply absolute bottom-[10px] flex items-center;
+  @apply absolute bottom-4 flex items-center;
 }
 
 .errorMessage {
-  @apply ml-[10px] tablet:w-[200px] text-red ;
+  @apply ml-[10px] tablet:w-[200px] text-red text-xs;
 }
